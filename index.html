@@ -207,6 +207,7 @@
   .card__kicker .alt{font-size:.7rem; letter-spacing:.06em; padding:2px 8px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--muted); font-weight:600}
   .badge{font-size:.68rem; letter-spacing:.05em; padding:2px 8px; border-radius:999px; font-weight:700; border:1px solid transparent; white-space:nowrap}
   .badge--ok{background:var(--moss-soft); color:var(--moss); border-color:color-mix(in srgb, var(--moss) 32%, transparent)}
+  .badge--warn{background:var(--accent-soft); color:var(--accent); border-color:color-mix(in srgb, var(--accent) 30%, transparent)}
   .badge--opt{background:var(--surface-2); color:var(--muted); border-color:var(--line)}
   .card h3{font-family:var(--serif); font-weight:600; font-size:1.32rem; line-height:1.25; margin:0 0 8px; letter-spacing:-.01em}
   .card p{margin:0 0 10px; color:var(--ink-soft); font-size:.95rem}
@@ -744,10 +745,10 @@ const TRIP = {
           leg: { mode: "drive", km: "5,4 km", min: "7 min", from: "Garòs, Naut Aran" }
         },
         {
-          t: "13:30", k: "food", kicker: "Comida", title: "Casa Perú o Unhòla",
-          dest: "Casa Perú, Bagergue", place: "Casa Perú Bagergue",
-          desc: "Comida típica aranesa en Bagergue: Casa Perú es la recomendación del plan para probar cocina de montaña, y Unhòla es la alternativa si está lleno. Olla aranesa, carnes guisadas y postres de la casa.",
-          tips: ["Reserva sí o sí: es sábado y el pueblo es pequeño.", "Deja hueco para el queso de la zona."],
+          t: "13:30", k: "food", kicker: "Comida", title: "Unhòla", badge: "Sin reserva", tone: "warn",
+          dest: "Unhòla, Bagergue", place: "Unhòla Bagergue",
+          desc: "Comida aranesa en Bagergue, en el pueblo más alto del valle: olla aranesa, carnes guisadas y postres de la casa. Es la opción preferible del plan; la mesa todavía no está reservada.",
+          tips: ["<b>Pendiente de reservar:</b> llama esta semana, es sábado y el pueblo es pequeño.", "Deja hueco para el queso de la zona: Bagergue es tierra de queserías."],
           leg: { mode: "drive", km: "2,2 km", min: "6 min", from: "Salardú, Naut Aran" }
         },
         {
@@ -756,7 +757,7 @@ const TRIP = {
           desc: "A 1.429 m, es el pueblo más alto de la Val d'Aran y uno de los más bonitos de España. Casas de piedra con balconadas de madera, queserías artesanas y vistas a las cumbres desde cada esquina.",
           tips: ["Compra queso artesano: es la especialidad del pueblo.", "Las mejores vistas, desde la parte alta del pueblo."],
           img: "img/bagergue-2.jpg", cap: "Calles de piedra de Bagergue",
-          leg: { mode: "walk", km: "300 m", min: "5 min", from: "Casa Perú, Bagergue" }
+          leg: { mode: "walk", km: "300 m", min: "5 min", from: "Unhòla, Bagergue" }
         },
         {
           t: "16:00", k: "walk", kicker: "Ruta circular", title: "Vuelta a Bagergue (5 km)",
@@ -782,7 +783,7 @@ const TRIP = {
           dest: "Urtau Arties", place: "Tauèrna Urtau Arties",
           desc: "Cena de tapas en la versión aranesa de Urtau: informal, animada y perfecta para cerrar el día sin complicaciones, con el coche ya aparcado y sin volver a conducir.",
           tips: ["Suele haber ambiente a partir de las 20:00.", "Si preferís cenar de mantel, el plan B está a ocho minutos: Eth Bistro Gastro Espai, en Vielha."],
-          aside: "<b>Plan B para cenar en Vielha:</b> <b>Eth Bistro Gastro Espai</b>, alta cocina, a 6,7 km y 8 minutos de Arties. <b>Menú corto</b>, 62 €/pers.: 3 aperitivos gourmet, entrante, pescado o carne y postre. <b>Menú largo</b>: 5 aperitivos gourmet, entrante, pescado, carne, postre y petit fours (precio a confirmar). Conviene reservar: son menús y pocas mesas.",
+          aside: "<b>Plan B para cenar en Vielha:</b> <b>Eth Bistro Gastro Espai</b>, alta cocina, a 6,7 km y 8 minutos de Arties. <b>Menú corto</b>, 62 €/pers.: 3 aperitivos gourmet, entrante, pescado o carne y postre. <b>Menú largo</b>, 87 €/pers.: 5 aperitivos gourmet, entrante, pescado, carne, postre y petit fours. Conviene reservar: son menús y pocas mesas.",
           leg: { mode: "walk", km: "200 m", min: "3 min", from: "Arties, Naut Aran" }
         }
       ],
@@ -864,9 +865,8 @@ const FOOD = [
   { name: "Brasería El Racó", where: "Vielha", when: "Día 1 · cena · 22:15", desc: "Brasa y platos contundentes de montaña. Mesa reservada a las 22:15 para cerrar el día de carretera.", q: "Brasería El Racó Vielha" },
   { name: "Tauèrna Era Oelha Nera", where: "Es Bòrdes", when: "Día 2 · comida", desc: "Cocina aranesa de pueblo, de cuchara y brasa, en una casa de piedra del mismo Es Bòrdes. La parada del viernes tras la Artiga de Lin.", q: "Era Oelha Nera Es Bòrdes" },
   { name: "Era Lucana", where: "Vielha", when: "Día 2 · cena · 21:30", desc: "Cocina de autor y producto local, una de las referencias del valle. Mesa reservada a las 21:30 para la cena del viernes.", q: "Era Lucana Vielha" },
-  { name: "Eth Bistro Gastro Espai", where: "Vielha", when: "Día 3 · plan B", desc: "Alta cocina en Vielha: menú corto de 3 aperitivos, entrante, pescado o carne y postre (62 €), y menú largo con 5 aperitivos, pescado, carne, postre y petit fours.", q: "Eth Bistro Gastro Espai Vielha" },
-  { name: "Casa Perú", where: "Bagergue", when: "Día 3 · comida", desc: "Comida típica de montaña en el pueblo más alto del valle. Olla aranesa y carnes guisadas.", q: "Casa Perú Bagergue" },
-  { name: "Unhòla", where: "Bagergue", when: "Día 3 · alternativa", desc: "Alternativa en el mismo pueblo si Casa Perú no tiene mesa.", q: "Unhòla Bagergue" },
+  { name: "Eth Bistro Gastro Espai", where: "Vielha", when: "Día 3 · plan B", desc: "Alta cocina en Vielha: menú corto de 3 aperitivos, entrante, pescado o carne y postre (62 €), y menú largo con 5 aperitivos, pescado, carne, postre y petit fours (87 €).", q: "Eth Bistro Gastro Espai Vielha" },
+  { name: "Unhòla", where: "Bagergue", when: "Día 3 · comida", desc: "Comida aranesa en el pueblo más alto del valle. La opción preferible del sábado, todavía sin reservar.", q: "Unhòla Bagergue" },
   { name: "Urtau Arties", where: "Arties", when: "Día 3 · cena", desc: "Tapas y ambiente animado para cerrar el sábado.", q: "Tauèrna Urtau Arties" },
   { name: "Es Arraïtzes", where: "Val d'Aran", when: "Día 4 · comida · opcional", desc: "Comida de despedida antes de emprender el viaje de vuelta, si os quedáis a comer en Bossòst.", q: "Es Arraïtzes Val d'Aran" },
   { name: "Casa Nostra", where: "Bossòst", when: "Día 4 · alternativa · opcional", desc: "Opción de reserva para el domingo si el plan del bajo valle sigue adelante.", q: "Casa Nostra Bossòst" }
@@ -886,7 +886,7 @@ const TIPS = [
   { icon: "car", title: "Coche y cadenas", text: "La N-230 y las pistas altas pueden exigir cadenas. Llévalas siempre, junto con rasqueta, anticongelante y linterna. Reposta al entrar y al salir del valle." },
   { icon: "route", title: "Pistas y accesos", text: "Artiga de Lin y Saut deth Pish se suben por pista forestal. En temporada alta hay control horario; en noviembre suele estar abierta, pero confirma el estado antes de subir." },
   { icon: "camera", title: "Luz y fotografía", text: "La hora dorada va de las 16:30 a las 17:40. Los mejores escenarios: el puente del Garona al atardecer, la Bassa d'Oles a media tarde, la Artiga de Lin a media mañana y Bagergue por la tarde. El barranco del Varradòs pierde el sol pronto: allí funciona mejor la exposición larga." },
-  { icon: "food", title: "Reservas", text: "Cenas del jueves y del viernes resueltas: El Racó a las 22:15 y Era Lucana a las 21:30. Falta asegurar la comida del sábado en Bagergue, y si tiráis del plan B del sábado (Eth Bistro), reservad también: son menús y pocas mesas." },
+  { icon: "food", title: "Reservas", text: "Cenas del jueves y del viernes resueltas: El Racó a las 22:15 y Era Lucana a las 21:30. Falta asegurar la comida del sábado en Unhòla, que es la opción preferible, y si tiráis del plan B de esa noche (Eth Bistro), reservad también: son menús y pocas mesas." },
   { icon: "info", title: "Dinero y cobertura", text: "Lleva efectivo para los pueblos pequeños y para los aparcamientos. La cobertura móvil es irregular en las pistas: descarga el mapa offline antes de salir." }
 ];
 
@@ -1161,7 +1161,7 @@ function stopHTML(stop, idx) {
   const tags = [];
   if (stop.alt) tags.push('<span class="alt">' + stop.alt + "</span>");
   if (stop.opt) tags.push('<span class="badge badge--opt">Opcional</span>');
-  if (stop.badge) tags.push('<span class="badge badge--ok">' + esc(stop.badge) + "</span>");
+  if (stop.badge) tags.push('<span class="badge badge--' + (stop.tone || "ok") + '">' + esc(stop.badge) + "</span>");
   const tagHTML = tags.length ? '<span class="kicker__tags">' + tags.join("") + "</span>" : "";
   const keyClass = idx === 0 ? " stop--key" : "";
   const extra = (stop.links || []).map(l =>
@@ -1297,7 +1297,7 @@ function foodHTML() {
   const dishes = DISHES.map(d => "<li>" + d + "</li>").join("");
   return '<section id="comer"><div class="wrap">' +
     '<div class="sec-head"><div class="kicker">Mesa y mantel</div><h2>Dónde comer y qué pedir</h2>' +
-    "<p>Once direcciones para cuatro días, con la recomendación del plan y una alternativa por si está lleno. Reserva las cenas del fin de semana.</p></div>" +
+    "<p>Diez direcciones para cuatro días, con la recomendación del plan y una alternativa por si está lleno. Reserva las cenas del fin de semana.</p></div>" +
     '<div class="food-grid">' + cards + "</div>" +
     '<div class="dishes"><img class="dishes__img" src="img/olla-1.jpg" alt="Olla aranesa, guiso típico del valle" loading="lazy" data-full="img/olla-1.jpg" data-cap="Olla aranesa">' +
       '<div class="dishes__body"><h3>Platos típicos que no puedes perderte</h3><ul>' + dishes + "</ul>" +
