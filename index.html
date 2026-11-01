@@ -664,14 +664,14 @@ const TRIP = {
           t: "18:00", k: "info", kicker: "Tiempo libre", title: "Vielha sin prisa",
           dest: "Vielha, Lleida", place: "Vielha, Lleida",
           desc: "Ducha, café y compras. Si queda energía, el Musèu dera Val d'Aran (Casa Joanchiquet) explica la historia y la lengua del valle; consulta horarios porque en noviembre abre con horario reducido.",
-          tips: ["Aprovecha para reservar la comida del sábado en Bagergue.", "El paseo de Gausac queda para mañana al amanecer: 45 minutos y la mejor vista de Vielha."],
+          tips: ["Aprovecha para reservar la comida del sábado en Bagergue.", "El paseo de Gausac queda para mañana al amanecer: 45 minutos y la mejor vista de Vielha.", "La cena del viernes es a las 21:30: hay margen para descansar y bajar andando."],
           leg: { mode: "walk", km: "1,5 km", min: "20 min", from: "Vielha, Lleida" }
         },
         {
-          t: "20:00", k: "food", kicker: "Cena", title: "Era Lucana o Eth Bistro",
+          t: "21:30", k: "food", kicker: "Cena", title: "Era Lucana", badge: "Reservado · 21:30",
           dest: "Era Lucana, Vielha", place: "Era Lucana Vielha",
-          desc: "La cena especial del plan: Era Lucana es una de las referencias gastronómicas del valle, con cocina de autor y producto local. Si buscáis algo más informal, Eth Bistro funciona muy bien.",
-          tips: ["Reserva con antelación: es el restaurante más demandado del fin de semana."],
+          desc: "La cena especial del viaje, con mesa reservada a las 21:30: Era Lucana es una de las referencias gastronómicas del valle, con cocina de autor y producto local. Después de la cascada y del paseo por Vielha, es el sitio para sentarse sin prisa.",
+          tips: ["Mesa reservada a las <b>21:30</b>: hay tiempo de sobra para ducharse y bajar andando.", "Si os apetece algo más informal otro día, Eth Bistro funciona muy bien.", "Deja hueco para el postre: es la última cena con mantel del viaje."],
           leg: { mode: "walk", km: "600 m", min: "8 min", from: "Vielha, Lleida" }
         }
       ],
@@ -860,7 +860,7 @@ const FOOD = [
   { name: "Tauèrna Urtau", where: "Vielha", when: "Vielha · alternativa", desc: "Tapas, raciones y ambiente informal en el centro. Perfecto para una comida rápida sin reserva.", q: "Tauèrna Urtau Vielha" },
   { name: "Brasería El Racó", where: "Vielha", when: "Día 1 · cena · 22:15", desc: "Brasa y platos contundentes de montaña. Mesa reservada a las 22:15 para cerrar el día de carretera.", q: "Brasería El Racó Vielha" },
   { name: "Tauèrna Era Oelha Nera", where: "Es Bòrdes", when: "Día 2 · comida", desc: "Cocina aranesa de pueblo, de cuchara y brasa, en una casa de piedra del mismo Es Bòrdes. La parada del viernes tras la Artiga de Lin.", q: "Era Oelha Nera Es Bòrdes" },
-  { name: "Era Lucana", where: "Vielha", when: "Día 2 · cena", desc: "Una de las referencias gastronómicas del valle. La cena especial del viaje.", q: "Era Lucana Vielha" },
+  { name: "Era Lucana", where: "Vielha", when: "Día 2 · cena · 21:30", desc: "Cocina de autor y producto local, una de las referencias del valle. Mesa reservada a las 21:30 para la cena del viernes.", q: "Era Lucana Vielha" },
   { name: "Eth Bistro", where: "Vielha", when: "Día 2 · alternativa", desc: "Opción más informal para la noche del viernes si Era Lucana está completo.", q: "Eth Bistro Vielha" },
   { name: "Casa Perú", where: "Bagergue", when: "Día 3 · comida", desc: "Comida típica de montaña en el pueblo más alto del valle. Olla aranesa y carnes guisadas.", q: "Casa Perú Bagergue" },
   { name: "Unhòla", where: "Bagergue", when: "Día 3 · alternativa", desc: "Alternativa en el mismo pueblo si Casa Perú no tiene mesa.", q: "Unhòla Bagergue" },
@@ -883,7 +883,7 @@ const TIPS = [
   { icon: "car", title: "Coche y cadenas", text: "La N-230 y las pistas altas pueden exigir cadenas. Llévalas siempre, junto con rasqueta, anticongelante y linterna. Reposta al entrar y al salir del valle." },
   { icon: "route", title: "Pistas y accesos", text: "Artiga de Lin y Saut deth Pish se suben por pista forestal. En temporada alta hay control horario; en noviembre suele estar abierta, pero confirma el estado antes de subir." },
   { icon: "camera", title: "Luz y fotografía", text: "La hora dorada va de las 16:30 a las 17:40. Los mejores escenarios: el puente del Garona al atardecer, la Bassa d'Oles a media tarde, la Artiga de Lin a media mañana y Bagergue por la tarde. El barranco del Varradòs pierde el sol pronto: allí funciona mejor la exposición larga." },
-  { icon: "food", title: "Reservas", text: "La cena del jueves está reservada a las 22:15 en El Racó. Falta asegurar la cena del viernes y la comida del sábado: es fin de semana y los pueblos son pequeños. Muchos restaurantes cierran un día entre semana." },
+  { icon: "food", title: "Reservas", text: "Cenas del jueves y del viernes resueltas: El Racó a las 22:15 y Era Lucana a las 21:30. Falta asegurar la comida del sábado en Bagergue: es fin de semana y los pueblos son pequeños. Muchos restaurantes cierran un día entre semana." },
   { icon: "info", title: "Dinero y cobertura", text: "Lleva efectivo para los pueblos pequeños y para los aparcamientos. La cobertura móvil es irregular en las pistas: descarga el mapa offline antes de salir." }
 ];
 
