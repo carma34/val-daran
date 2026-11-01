@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Val d'Aran · 5–8 noviembre · Itinerario interactivo</title>
+<meta name="description" content="Itinerario día a día por la Val d'Aran: Bassa d'Oles, Uelhs deth Joeu, Artiga de Lin, Saut deth Pish, Arties, Salardú y Bagergue. Rutas en Google Maps, mapas por día, fotos, distancias, altitudes y consejos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23b0512c'/%3E%3Cpath d='M5 24l8-13 4.5 7.2L20 15l7 9z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#f6f2ea; --surface:#fffdf8; --surface-2:#f1ebe0;
+    --ink:#1d2421; --ink-soft:#3d4741; --muted:#66716a;
+    --line:#e3dbcc; --line-strong:#d3c8b4;
+    --accent:#b0512c; --accent-soft:#f3e2d7;
+    --moss:#5f7a4a; --moss-soft:#e7ecdd;
+    --gold:#b98a2f; --sky:#3f6d8c;
+    --shadow:0 1px 2px rgba(29,36,33,.05), 0 10px 30px -18px rgba(29,36,33,.35);
+    --radius:18px; --radius-sm:12px;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --maxw:1120px;
+  }
+  html[data-theme="dark"]{
+    --bg:#12171a; --surface:#1a2024; --surface-2:#212a2e;
+    --ink:#ece8de; --ink-soft:#cfd5cc; --muted:#9aa69e;
+    --line:#2b3538; --line-strong:#3a464a;
+    --accent:#e5804f; --accent-soft:#33231c;
+    --moss:#a3c07f; --moss-soft:#20291d;
+    --gold:#d9a94e; --sky:#7fb0cf;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 18px 40px -24px rgba(0,0,0,.9);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:78px}
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--sans); font-size:16.5px; line-height:1.65; -webkit-font-smoothing:antialiased}
+  img{display:block; max-width:100%}
+  a{color:var(--accent); text-decoration:none}
+  a:hover{text-decoration:underline}
+  button{font:inherit; color:inherit; cursor:pointer}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:4px}
+  .wrap{width:min(var(--maxw), 100% - 40px); margin-inline:auto}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative; min-height:min(88vh,760px); display:flex; align-items:flex-end; color:#fff; overflow:hidden}
+  .hero__img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transform:scale(1.02)}
+  .hero::after{content:""; position:absolute; inset:0; background:
+     linear-gradient(180deg, rgba(12,18,16,.62) 0%, rgba(12,18,16,.18) 30%, rgba(12,18,16,.55) 68%, rgba(12,18,16,.93) 100%)}
+  .hero__inner{position:relative; z-index:2; width:min(var(--maxw),100% - 40px); margin:0 auto; padding:120px 0 46px}
+  .hero__eyebrow{display:flex; flex-wrap:wrap; gap:10px 14px; align-items:center; font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:#f0e2cf; margin-bottom:18px}
+  .hero__eyebrow span{display:inline-flex; align-items:center; gap:7px}
+  .hero__eyebrow .sep{width:26px; height:1px; background:rgba(255,255,255,.45)}
+  .hero h1{font-family:var(--serif); font-weight:600; font-size:clamp(2.7rem,7vw,5.2rem); line-height:1.02; letter-spacing:-.025em; margin:0 0 14px; text-wrap:balance}
+  .hero h1 em{font-style:italic; color:#f2cfae}
+  .hero__sub{max-width:60ch; font-size:clamp(1rem,1.6vw,1.18rem); color:#e6ded2; margin:0 0 26px}
+  .hero__stats{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:26px}
+  .hero__stats div{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); backdrop-filter:blur(8px); border-radius:999px; padding:8px 15px; font-size:.86rem; color:#fff}
+  .hero__stats b{font-weight:650}
+  .hero__cta{display:flex; flex-wrap:wrap; gap:12px}
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:12px 20px; border-radius:999px; border:1px solid transparent; font-weight:600; font-size:.94rem; text-decoration:none; transition:transform .18s ease, background .18s ease, border-color .18s ease}
+  .btn:hover{text-decoration:none; transform:translateY(-1px)}
+  .btn--primary{background:#fff; color:#1d2421}
+  .btn--ghost{border-color:rgba(255,255,255,.45); color:#fff; background:rgba(255,255,255,.06)}
+  .btn--ghost:hover{background:rgba(255,255,255,.14)}
+  .btn--sm{padding:8px 14px; font-size:.85rem}
+  .btn--outline{border-color:var(--line-strong); color:var(--ink); background:transparent}
+  .btn--outline:hover{border-color:var(--accent); color:var(--accent)}
+  .hero__scroll{position:absolute; right:22px; bottom:18px; z-index:3; font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(255,255,255,.7); writing-mode:vertical-rl}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter:blur(14px) saturate(1.2); border-bottom:1px solid var(--line)}
+  .nav__inner{display:flex; align-items:center; gap:14px; padding:10px 0}
+  .nav__brand{display:flex; align-items:center; gap:9px; font-family:var(--serif); font-size:1.02rem; white-space:nowrap; color:var(--ink)}
+  .nav__brand svg{color:var(--accent)}
+  .nav__links{display:flex; gap:4px; overflow-x:auto; scrollbar-width:none; flex:1; padding:2px; mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%); -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 26px),transparent 100%)}
+  .nav__links::-webkit-scrollbar{display:none}
+  .nav__links a{white-space:nowrap; padding:7px 12px; border-radius:999px; font-size:.84rem; color:var(--ink-soft); border:1px solid transparent}
+  .nav__links a:hover{background:var(--surface-2); text-decoration:none}
+  .nav__links a.is-active{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+  .nav__tools{display:flex; gap:6px; align-items:center}
+  .iconbtn{display:inline-grid; place-items:center; width:38px; height:38px; border-radius:50%; border:1px solid var(--line); background:var(--surface); color:var(--ink-soft)}
+  .iconbtn:hover{border-color:var(--accent); color:var(--accent)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:64px 0}
+  section + section{border-top:1px solid var(--line)}
+  .sec-head{margin-bottom:34px; max-width:70ch}
+  .sec-head .kicker{font-size:.74rem; letter-spacing:.18em; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:8px}
+  .sec-head h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.9rem,3.6vw,2.9rem); line-height:1.08; letter-spacing:-.02em; margin:0 0 10px}
+  .sec-head p{color:var(--muted); margin:0}
+
+  /* ---------- OVERVIEW ---------- */
+  .overview{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+  .daycard{position:relative; display:flex; flex-direction:column; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); transition:transform .2s ease, border-color .2s ease}
+  .daycard:hover{transform:translateY(-3px); border-color:var(--line-strong)}
+  .daycard__media{position:relative; aspect-ratio:16/10; overflow:hidden; background:var(--surface-2)}
+  .daycard__media img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease}
+  .daycard:hover .daycard__media img{transform:scale(1.05)}
+  .daycard__date{position:absolute; top:12px; left:12px; background:rgba(20,26,23,.72); color:#fff; backdrop-filter:blur(6px); border-radius:999px; padding:5px 12px; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase}
+  .daycard__body{padding:16px 17px 18px; display:flex; flex-direction:column; gap:8px; flex:1}
+  .daycard__body h3{font-family:var(--serif); font-size:1.22rem; line-height:1.2; margin:0; font-weight:600}
+  .daycard__body p{margin:0; font-size:.9rem; color:var(--muted)}
+  .daycard__meta{margin-top:auto; display:flex; flex-wrap:wrap; gap:6px; padding-top:10px}
+  .chip{display:inline-flex; align-items:center; gap:5px; font-size:.75rem; padding:4px 9px; border-radius:999px; background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line); white-space:nowrap}
+  .chip svg{opacity:.75}
+  .chip--accent{background:var(--accent-soft); border-color:transparent; color:var(--accent)}
+
+  .mapcard{margin-top:22px; display:grid; grid-template-columns:1.15fr .85fr; gap:0; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+  .mapcard__frame{position:relative; min-height:320px; background:var(--surface-2)}
+  .mapcard__frame iframe{position:absolute; inset:0; width:100%; height:100%; border:0; filter:saturate(.95)}
+  .mapcard__body{padding:26px 26px 24px; display:flex; flex-direction:column; gap:14px; justify-content:center}
+  .mapcard__body h3{font-family:var(--serif); font-size:1.5rem; margin:0; font-weight:600}
+  .mapcard__body p{margin:0; color:var(--muted); font-size:.94rem}
+  .keylegs{display:grid; gap:2px; margin:6px 0 0}
+  .keylegs div{display:flex; justify-content:space-between; gap:14px; padding:7px 0; border-bottom:1px dashed var(--line); font-size:.88rem}
+  .keylegs div:last-child{border-bottom:0}
+  .keylegs b{font-weight:600}
+  .keylegs span{color:var(--muted); white-space:nowrap}
+
+  .staycards{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
+  .staycard{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:6px}
+  .staycard .k{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:700; display:flex; align-items:center; gap:7px}
+  .staycard .k svg{color:var(--accent)}
+  .staycard h3{font-family:var(--serif); font-size:1.22rem; margin:2px 0 0; font-weight:600}
+  .staycard p{margin:0; font-size:.9rem; color:var(--muted)}
+  .staycard .actions{margin-top:auto; padding-top:12px}
+
+  .walkcard{margin-top:16px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; box-shadow:var(--shadow)}
+  .walkcard__head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:12px}
+  .walkcard__head h3{font-family:var(--serif); font-size:1.22rem; margin:0; font-weight:600}
+  .walkcard__head span{font-size:.76rem; color:var(--muted)}
+  .walkrow{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .walkrow div{background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:9px 12px}
+  .walkrow b{display:block; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:700}
+  .walkrow span{font-size:.95rem; font-weight:650; color:var(--ink); font-variant-numeric:tabular-nums}
+  .walkcard p{margin:12px 0 0; font-size:.86rem; color:var(--muted)}
+
+  /* ---------- ROUTE MAP ---------- */
+  .routemap{display:grid; grid-template-columns:1.55fr .85fr; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+  .routemap__tabs{grid-column:1 / -1; display:flex; gap:6px; flex-wrap:wrap; padding:13px 16px; border-bottom:1px solid var(--line); background:var(--surface-2)}
+  .routemap__tabs button{border:1px solid var(--line-strong); background:var(--surface); color:var(--ink-soft); border-radius:999px; padding:8px 15px; font-size:.85rem; font-weight:600; display:inline-flex; gap:7px; align-items:baseline}
+  .routemap__tabs button:hover{border-color:var(--accent); color:var(--accent)}
+  .routemap__tabs button[aria-selected="true"]{background:var(--ink); border-color:var(--ink); color:var(--bg)}
+  .routemap__tabs b{font-weight:700}
+  .routemap__map{position:relative; padding:16px 18px 10px; min-width:0; display:flex; flex-direction:column}
+  .routemap__svg{width:100%; aspect-ratio:900/440; border-radius:14px; overflow:hidden; background:var(--surface-2)}
+  .routemap__svg svg{display:block; width:100%; height:100%}
+  .routemap__legend{margin:10px 2px 4px; font-size:.75rem; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+  .routemap__side{padding:22px 24px; border-left:1px solid var(--line); display:flex; flex-direction:column; gap:10px}
+  .routemap__side h3{font-family:var(--serif); font-size:1.34rem; margin:0; font-weight:600; line-height:1.2}
+  .routemap__side > p{margin:0; font-size:.88rem; color:var(--muted)}
+  .rmmeta{display:flex; flex-wrap:wrap; gap:6px; margin:2px 0 4px}
+  .rmstops{list-style:none; margin:0; padding:0; counter-reset:rm; flex:1}
+  .rmstops li{position:relative; padding:8px 0 8px 27px; font-size:.88rem; color:var(--ink-soft); border-bottom:1px dashed var(--line)}
+  .rmstops li:last-child{border-bottom:0}
+  .rmstops li::before{counter-increment:rm; content:counter(rm); position:absolute; left:0; top:9px; width:19px; height:19px; border-radius:50%; background:var(--accent-soft); color:var(--accent); font-size:.68rem; font-weight:700; display:grid; place-items:center}
+  .rmstops li span{display:block; font-size:.74rem; color:var(--muted); line-height:1.35}
+  .rmstops li em{font-style:normal; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:1px 6px; margin-left:6px; vertical-align:1px}
+  .routemap__side .actions{margin-top:4px}
+
+  .btn--accent{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn--accent:hover{background:#9c4626; border-color:#9c4626; color:#fff}
+
+  .wxwrap{margin-top:22px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px 24px; box-shadow:var(--shadow)}
+  .wxwrap__head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap; margin-bottom:14px}
+  .wxwrap__head h3{font-family:var(--serif); font-size:1.25rem; margin:0; font-weight:600}
+  .wxwrap__head span{font-size:.78rem; color:var(--muted)}
+  .wxrow{display:grid; grid-template-columns:repeat(4,1fr); gap:10px}
+  .wx{background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:12px 14px; display:grid; gap:2px}
+  .wx__d{font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:700}
+  .wx__i{font-size:1.5rem; line-height:1.25}
+  .wx__t b{font-size:1.25rem} .wx__t span{color:var(--muted); margin-left:6px; font-size:.9rem}
+  .wx__c{font-size:.72rem; color:var(--muted)}
+  .wxnote{margin:12px 0 0; font-size:.78rem; color:var(--muted)}
+
+  /* ---------- DAY ---------- */
+  .day-head{display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:start; margin-bottom:12px}
+  .day-num{font-family:var(--serif); font-size:clamp(3.2rem,7vw,5rem); line-height:.82; color:var(--line-strong); font-weight:600; letter-spacing:-.04em}
+  .day-title h2{font-family:var(--serif); font-weight:600; font-size:clamp(1.8rem,3.4vw,2.7rem); line-height:1.06; margin:2px 0 6px; letter-spacing:-.02em}
+  .day-title .date{font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:700}
+  .day-title p{margin:8px 0 0; color:var(--muted); max-width:65ch}
+  .day-stats{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 26px; padding-left:0}
+  .day-stats .chip{background:var(--surface); padding:6px 12px; font-size:.79rem}
+  .day-actions{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:34px}
+
+  .timeline{position:relative}
+  .stop{display:grid; grid-template-columns:86px 1fr; gap:20px; position:relative; padding-bottom:6px}
+  .stop__time{position:relative; text-align:right; padding-top:2px}
+  .stop__time b{display:block; font-variant-numeric:tabular-nums; font-size:.95rem; font-weight:650; letter-spacing:-.01em}
+  .stop__time span{display:block; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted)}
+  .stop__time::after{content:""; position:absolute; right:-25px; top:9px; width:9px; height:9px; border-radius:50%; background:var(--bg); border:2px solid var(--line-strong); z-index:2}
+  .stop--key .stop__time::after{border-color:var(--accent); background:var(--accent)}
+  .stop__main{position:relative; padding-left:20px; border-left:1px solid var(--line); padding-bottom:26px}
+  .stop__main::before{content:""; position:absolute; left:-1px; top:0; width:1px; height:100%; background:linear-gradient(var(--line), transparent 92%)}
+  .stop:last-child .stop__main{border-left-color:transparent}
+
+  .leg{display:flex; flex-wrap:wrap; align-items:center; gap:8px 12px; margin:0 0 10px; font-size:.82rem; color:var(--muted)}
+  .leg .leg__icon{display:inline-grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--surface-2); border:1px solid var(--line); color:var(--ink-soft); flex:none}
+  .leg b{color:var(--ink); font-weight:650}
+  .leg a{display:inline-flex; align-items:center; gap:5px; font-weight:600; color:var(--accent); white-space:nowrap}
+  .leg__dash{flex:0 0 16px; height:1px; background:repeating-linear-gradient(90deg, var(--line-strong) 0 4px, transparent 4px 9px)}
+
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:grid; grid-template-columns:1fr}
+  .card--media{grid-template-columns:1fr 300px}
+  .card__body{padding:22px 24px 20px; min-width:0}
+  .card__kicker{display:flex; align-items:center; gap:8px; font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); font-weight:700; margin-bottom:6px}
+  .card__kicker svg{color:var(--accent)}
+  .card__kicker .kicker__tags{margin-left:auto; display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end}
+  .card__kicker .alt{font-size:.7rem; letter-spacing:.06em; padding:2px 8px; border-radius:999px; background:var(--surface-2); border:1px solid var(--line); color:var(--muted); font-weight:600}
+  .badge{font-size:.68rem; letter-spacing:.05em; padding:2px 8px; border-radius:999px; font-weight:700; border:1px solid transparent; white-space:nowrap}
+  .badge--ok{background:var(--moss-soft); color:var(--moss); border-color:color-mix(in srgb, var(--moss) 32%, transparent)}
+  .badge--opt{background:var(--surface-2); color:var(--muted); border-color:var(--line)}
+  .card h3{font-family:var(--serif); font-weight:600; font-size:1.32rem; line-height:1.25; margin:0 0 8px; letter-spacing:-.01em}
+  .card p{margin:0 0 10px; color:var(--ink-soft); font-size:.95rem}
+  .card p:last-child{margin-bottom:0}
+  .tips{list-style:none; margin:12px 0 0; padding:0; display:grid; gap:7px}
+  .tips li{position:relative; padding-left:19px; font-size:.88rem; color:var(--muted)}
+  .tips li::before{content:""; position:absolute; left:2px; top:.55em; width:6px; height:6px; border-radius:50%; background:var(--moss); opacity:.7}
+  .tips li b{color:var(--ink-soft)}
+  .actions{display:flex; flex-wrap:wrap; gap:8px; margin-top:16px}
+  .actions .btn{padding:8px 14px; font-size:.84rem; border-radius:999px; border:1px solid var(--line-strong); background:transparent; color:var(--ink-soft); font-weight:600}
+  .actions .btn:hover{border-color:var(--accent); color:var(--accent); text-decoration:none; background:var(--accent-soft)}
+  .actions .btn--solid{background:var(--accent); border-color:var(--accent); color:#fff}
+  .actions .btn--solid:hover{background:#9c4626; color:#fff}
+  .card__media{margin:0; position:relative; min-height:200px; background:var(--surface-2); cursor:zoom-in}
+  .card__media img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0}
+  .card__media figcaption{position:absolute; inset:auto 0 0 0; padding:26px 14px 10px; font-size:.72rem; color:#fff; background:linear-gradient(transparent, rgba(0,0,0,.7))}
+
+  .note{margin-top:18px; padding:16px 18px; border-radius:var(--radius-sm); background:var(--moss-soft); border:1px solid color-mix(in srgb, var(--moss) 22%, transparent); font-size:.9rem; color:var(--ink-soft)}
+  .note b{color:var(--ink)}
+  .note--warn{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 22%, transparent)}
+
+  .pager{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:30px; padding-top:20px; border-top:1px solid var(--line); font-size:.9rem; font-weight:600}
+  .pager a{color:var(--ink-soft); display:inline-flex; align-items:center; gap:6px}
+  .pager a:hover{color:var(--accent); text-decoration:none}
+
+  .gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:26px}
+  .gallery figure{position:relative; margin:0; border-radius:var(--radius-sm); overflow:hidden; background:var(--surface-2); cursor:zoom-in; aspect-ratio:4/3}
+  .gallery figure.wide{grid-column:1 / -1; aspect-ratio:3.4/1}
+  .gallery img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
+  .gallery figure:hover img{transform:scale(1.06)}
+  .gallery figcaption{position:absolute; inset:auto 0 0 0; padding:22px 10px 8px; font-size:.7rem; color:#fff; background:linear-gradient(transparent, rgba(0,0,0,.68)); opacity:0; transition:opacity .25s ease}
+  .gallery figure:hover figcaption{opacity:1}
+
+  /* ---------- FOOD ---------- */
+  .food-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .food{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 20px 18px; box-shadow:var(--shadow); display:flex; flex-direction:column; gap:6px; transition:transform .2s ease, border-color .2s ease}
+  .food:hover{transform:translateY(-2px); border-color:var(--line-strong)}
+  .food h3{font-family:var(--serif); font-size:1.16rem; margin:0; font-weight:600}
+  .food .where{font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  .food p{margin:6px 0 0; font-size:.9rem; color:var(--ink-soft)}
+  .food .actions{margin-top:auto; padding-top:14px}
+
+  .dishes{display:grid; grid-template-columns:1.1fr 1fr; gap:24px; align-items:center; margin-top:34px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+  .dishes__img{height:100%; min-height:280px; object-fit:cover}
+  .dishes__body{padding:28px 30px 28px 0}
+  .dishes h3{font-family:var(--serif); font-size:1.6rem; margin:0 0 12px; font-weight:600}
+  .dishes ul{margin:0; padding:0; list-style:none; display:grid; gap:9px}
+  .dishes li{display:flex; gap:10px; font-size:.93rem; color:var(--ink-soft)}
+  .dishes li::before{content:"·"; color:var(--accent); font-weight:900}
+
+  /* ---------- TIPS / CHECKLIST ---------- */
+  .tips-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+  .tipbox{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
+  .tipbox__icon{display:inline-grid; place-items:center; width:42px; height:42px; border-radius:12px; background:var(--accent-soft); color:var(--accent); margin-bottom:12px}
+  .tipbox h3{font-family:var(--serif); font-size:1.14rem; margin:0 0 6px; font-weight:600}
+  .tipbox p{margin:0; font-size:.9rem; color:var(--muted)}
+  .tipbox p + p{margin-top:8px}
+
+  .checklist{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:8px}
+  .checkcol{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:20px 22px; box-shadow:var(--shadow)}
+  .checkcol h3{font-family:var(--serif); font-size:1.08rem; margin:0 0 12px; font-weight:600; display:flex; align-items:center; gap:8px}
+  .checkcol h3 svg{color:var(--accent)}
+  .checkcol label{display:flex; gap:10px; align-items:flex-start; padding:6px 0; font-size:.9rem; color:var(--ink-soft); cursor:pointer; border-bottom:1px dashed transparent}
+  .checkcol label:hover{border-bottom-color:var(--line)}
+  .checkcol input{margin:4px 0 0; accent-color:var(--accent); width:16px; height:16px; flex:none}
+  .checkcol input:checked + span{text-decoration:line-through; color:var(--muted)}
+  .progress{display:flex; align-items:center; gap:14px; margin-top:18px; font-size:.85rem; color:var(--muted)}
+  .progress__bar{flex:1; height:6px; border-radius:999px; background:var(--surface-2); overflow:hidden; border:1px solid var(--line)}
+  .progress__fill{height:100%; width:0%; background:linear-gradient(90deg, var(--moss), var(--accent)); transition:width .3s ease}
+
+  /* ---------- CALC ---------- */
+  .calc{display:grid; grid-template-columns:1fr 1fr; gap:0; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); margin-top:24px}
+  .calc__form{padding:26px 28px; display:grid; gap:14px}
+  .calc__form h3{font-family:var(--serif); font-size:1.3rem; margin:0; font-weight:600}
+  .field{display:grid; gap:6px}
+  .field label{font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .field input{width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--line-strong); background:var(--bg); color:var(--ink); font:inherit; font-size:.95rem}
+  .field input:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+  .calc__out{background:var(--surface-2); padding:26px 28px; display:flex; flex-direction:column; justify-content:center; gap:6px; border-left:1px solid var(--line)}
+  .calc__out .big{font-family:var(--serif); font-size:2.6rem; line-height:1; letter-spacing:-.03em}
+  .calc__out .lbl{font-size:.8rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+  .calc__out .hint{font-size:.82rem; color:var(--muted); margin-top:8px}
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb{position:fixed; inset:0; z-index:100; background:rgba(8,11,10,.94); display:none; align-items:center; justify-content:center; padding:24px}
+  .lb[open]{display:flex}
+  .lb img{max-width:min(1400px,92vw); max-height:84vh; object-fit:contain; border-radius:8px; box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lb__cap{position:absolute; left:0; right:0; bottom:18px; text-align:center; color:#d8d3c9; font-size:.85rem; padding:0 40px}
+  .lb__close{position:absolute; top:14px; right:16px; width:44px; height:44px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); color:#fff; display:grid; place-items:center}
+  .lb__nav{position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.22); color:#fff; display:grid; place-items:center}
+  .lb__nav--prev{left:16px} .lb__nav--next{right:16px}
+
+  /* ---------- FOOTER ---------- */
+  footer{padding:54px 0 40px; border-top:1px solid var(--line); background:var(--surface-2); font-size:.85rem; color:var(--muted)}
+  footer h3{font-family:var(--serif); font-size:1.1rem; color:var(--ink); margin:0 0 8px}
+  .credits{display:grid; grid-template-columns:repeat(2,1fr); gap:6px 24px; margin:10px 0 22px; font-size:.78rem; line-height:1.5}
+  .credits span{color:var(--muted)}
+  .foot-note{max-width:80ch; margin:0}
+
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .6s ease, transform .6s ease}
+  .reveal.is-in{opacity:1; transform:none}
+
+  @media (max-width:1000px){
+    .overview{grid-template-columns:repeat(2,1fr)}
+    .food-grid,.tips-grid,.checklist{grid-template-columns:repeat(2,1fr)}
+    .mapcard{grid-template-columns:1fr}
+    .mapcard__frame{min-height:280px}
+    .routemap{grid-template-columns:1fr}
+    .routemap__side{border-left:0; border-top:1px solid var(--line)}
+    .staycards{grid-template-columns:1fr}
+    .walkrow{grid-template-columns:repeat(2,1fr)}
+    .card--media{grid-template-columns:1fr 240px}
+    .gallery{grid-template-columns:repeat(3,1fr)}
+    .nav__brand span{display:none}
+    .nav__links a{padding:6px 10px; font-size:.81rem}
+  }
+  @media (max-width:720px){
+    body{font-size:16px}
+    .hero{min-height:78vh}
+    .hero__inner{padding:110px 0 34px}
+    .hero__eyebrow .sep{display:none}
+    .hero__eyebrow{gap:6px 10px}
+    .overview,.food-grid,.tips-grid,.checklist{grid-template-columns:1fr}
+    .walkrow{grid-template-columns:repeat(2,1fr)}
+    .mapcard__body{padding:22px}
+    .card--media{grid-template-columns:1fr}
+    .card__media{min-height:220px; order:-1}
+    .card__media img{position:relative; height:220px}
+    .stop{grid-template-columns:1fr; gap:8px}
+    .stop__time{text-align:left; display:flex; align-items:center; gap:10px}
+    .stop__time span{display:inline}
+    .stop__time::after{display:none}
+    .stop__main{padding-left:14px; margin-left:3px}
+    .day-head{grid-template-columns:1fr; gap:6px}
+    .day-num{font-size:2.6rem}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .gallery figure.wide{grid-column:1 / -1; aspect-ratio:3.4/1}
+    .dishes{grid-template-columns:1fr}
+    .dishes__img{min-height:220px; max-height:260px}
+    .dishes__body{padding:22px}
+    .calc{grid-template-columns:1fr}
+    .calc__out{border-left:0; border-top:1px solid var(--line)}
+    .credits{grid-template-columns:1fr}
+    .nav__brand span{display:none}
+    .lb__nav{display:none}
+    .routemap__map{padding:12px 12px 8px; overflow-x:auto; -webkit-overflow-scrolling:touch}
+    .routemap__svg{min-width:620px}
+    .routemap__tabs button{font-size:.79rem; padding:7px 12px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important; animation:none !important}
+    .reveal{opacity:1; transform:none}
+  }
+  @media print{
+    .nav,.hero__scroll,.actions,.lb,.hero__cta,.calc{display:none !important}
+    .routemap__tabs{display:none !important}
+    .hero{min-height:auto; color:#111; background:#fff}
+    .hero::after{display:none}
+    .hero__img{display:none}
+    .hero__inner{padding:20px 0}
+    .hero h1,.hero__sub,.hero__stats div{color:#111}
+    .hero__stats div{border-color:#ccc; background:#f4f4f4}
+    body{background:#fff; color:#111; font-size:11pt}
+    section{padding:18px 0; break-inside:avoid}
+    .card,.food,.tipbox,.checkcol,.daycard{box-shadow:none; border-color:#ccc; break-inside:avoid}
+    .stop{break-inside:avoid}
+    .card__media{display:none}
+    a{color:#111; text-decoration:none}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-mountain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 19 6.5-11 4 6.5L16 11l5 8z"/><path d="m8.2 10.5 1.3 1 1.3-1"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17h14M4 17v-4l2-5h12l2 5v4"/><path d="M6 17v2M18 17v2"/><circle cx="7.5" cy="13.5" r="1.2"/><circle cx="16.5" cy="13.5" r="1.2"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4.5" r="1.8"/><path d="m11 21 1.5-5.5L10 13l1-5 4 2 2 3"/><path d="m12.5 15.5 3 5.5"/><path d="M11 8 7.5 9.5 6 13"/></symbol>
+  <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5h3l1.5-2h9L18 8.5h3v10H3z"/><circle cx="12" cy="13.5" r="3.2"/></symbol>
+  <symbol id="i-food" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v8a2 2 0 0 0 4 0V3"/><path d="M8 11v10"/><path d="M16 3c-1.5 2-2 3.5-2 5.5S15 12 16 12v9"/></symbol>
+  <symbol id="i-church" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M10 4h4"/><path d="M6 21V11l6-4 6 4v10z"/><path d="M10 21v-4a2 2 0 0 1 4 0v4"/></symbol>
+  <symbol id="i-bed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M3 13h18v5M3 18h18"/><path d="M7 13V9h5a3 3 0 0 1 3 3v1"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2.5"/><circle cx="18" cy="5" r="2.5"/><path d="M8.5 19H14a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h3.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+  <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V4h10v5"/><path d="M7 17H5V9h14v8h-2"/><path d="M7 14h10v7H7z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M3.5 7l17 10M20.5 7l-17 10"/><path d="m9 4 3 3 3-3M9 20l3-3 3 3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-8 8"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.7 5.7 6.3.9-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.3-.9z"/></symbol>
+</svg>
+
+<header class="hero">
+  <img class="hero__img" src="img/arties-1.jpg" alt="Valle de Arties en otoño, con hayedos amarillos y cumbres del Pirineo al fondo">
+  <div class="hero__inner">
+    <div class="hero__eyebrow">
+      <span><svg width="15" height="15"><use href="#i-mountain"/></svg> Pirineo catalán · Lleida</span>
+      <i class="sep"></i>
+      <span>5 – 8 de noviembre</span>
+      <i class="sep"></i>
+      <span>4 días · 3 noches</span>
+    </div>
+    <h1>Val d'Aran<br><em>en otoño</em></h1>
+    <p class="hero__sub">Cuatro días entre hayedos dorados, surgencias de agua glaciar y pueblos de piedra. Itinerario completo con rutas que se abren directamente en Google Maps, distancias reales, altitudes, fotos y todos los detalles prácticos.</p>
+    <div class="hero__stats">
+      <div><b>≈ 1.230 km</b> en coche</div>
+      <div><b>≈ 20 km</b> a pie</div>
+      <div><b>530 km</b> desde Mira</div>
+      <div><b>631 – 1.623 m</b> de altitud</div>
+    </div>
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#dia-1"><svg width="18" height="18"><use href="#i-route"/></svg> Empezar el itinerario</a>
+      <a class="btn btn--ghost" href="#resumen"><svg width="18" height="18"><use href="#i-pin"/></svg> Ver resumen y mapa</a>
+    </div>
+  </div>
+  <div class="hero__scroll">Desliza</div>
+</header>
+
+<nav class="nav" aria-label="Navegación del itinerario">
+  <div class="wrap nav__inner">
+    <div class="nav__brand"><svg width="20" height="20"><use href="#i-mountain"/></svg><span>Val d'Aran</span></div>
+    <div class="nav__links" id="navLinks">
+      <a href="#resumen">Resumen</a>
+      <a href="#rutas">Rutas</a>
+      <a href="#dia-1">Jue 5</a>
+      <a href="#dia-2">Vie 6</a>
+      <a href="#dia-3">Sáb 7</a>
+      <a href="#dia-4">Dom 8</a>
+      <a href="#comer">Comer</a>
+      <a href="#consejos">Consejos</a>
+      <a href="#checklist">Checklist</a>
+    </div>
+    <div class="nav__tools">
+      <button class="iconbtn" id="themeBtn" aria-label="Cambiar entre tema claro y oscuro" title="Tema claro / oscuro"><svg width="18" height="18"><use href="#i-moon"/></svg></button>
+      <button class="iconbtn" id="printBtn" aria-label="Imprimir o guardar en PDF" title="Imprimir / PDF"><svg width="18" height="18"><use href="#i-print"/></svg></button>
+    </div>
+  </div>
+</nav>
+
+<main id="app"></main>
+
+<div class="lb" id="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
+  <button class="lb__close" id="lbClose" aria-label="Cerrar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb__nav lb__nav--prev" id="lbPrev" aria-label="Foto anterior"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <img id="lbImg" alt="">
+  <button class="lb__nav lb__nav--next" id="lbNext" aria-label="Foto siguiente"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="lb__cap" id="lbCap"></div>
+</div>
+
+<script>
+/* ============================================================
+   DATOS DEL VIAJE
+   Distancias de conducción medidas con OSRM/OpenStreetMap.
+   Distancias a pie según el plan original (redondeadas).
+   ============================================================ */
+
+const MAPS = {
+  search: (q) => "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(q),
+  dir: (from, to, mode = "driving") =>
+    "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(from) +
+    "&destination=" + encodeURIComponent(to) + "&travelmode=" + mode,
+  multi: (points, mode = "driving") => {
+    const clean = points.filter(Boolean);
+    if (clean.length < 2) return MAPS.search(clean[0] || "");
+    const origin = clean[0], dest = clean[clean.length - 1];
+    const mid = clean.slice(1, -1).slice(0, 9);
+    let u = "https://www.google.com/maps/dir/?api=1&origin=" + encodeURIComponent(origin) +
+            "&destination=" + encodeURIComponent(dest) + "&travelmode=" + mode;
+    if (mid.length) u += "&waypoints=" + mid.map(encodeURIComponent).join("%7C");
+    return u;
+  }
+};
+
+const TRIP = {
+  days: [
+    {
+      id: "dia-1", num: "01", dow: "Jueves", date: "5 de noviembre",
+      title: "Camino a la Val d'Aran",
+      subtitle: "530 km desde Mira, llaves en Baqueira, la Bassa d'Oles y el primer paseo por Vielha.",
+      hero: "img/vielha-noche.jpg",
+      stats: { drive: "≈ 575 km", walk: "1,5 – 4 km", stops: "6 paradas", alt: "975 – 1.604 m" },
+      stops: [
+        {
+          t: "08:00", k: "drive", kicker: "Salida", title: "Mira → Vielha",
+          dest: "Vielha, Lleida", place: "Vielha, Lleida",
+          desc: "Ruta por la N-330 y la A-23 (Autovía Mudéjar) hasta Zaragoza, circunvalación Z-40 y A-22 hacia Barbastro. Después, la N-230 por Benabarre y el valle del Noguera Ribagorçana hasta el túnel de Vielha. Son unas 6 horas de conducción efectiva, así que con paradas se llega entre las 13:30 y las 14:00.",
+          tips: [
+            "<b>Comida en ruta, sin parada fija:</b> Zaragoza (áreas de la Z-40), Barbastro o Benabarre son las opciones más cómodas para comer sin desviarse.",
+            "<b>Depósito lleno al salir</b> y cadenas en el maletero: en noviembre pueden ser obligatorias en la N-230.",
+            "El túnel de Vielha (5,2 km) es gratuito y la puerta de entrada al valle."
+          ],
+          leg: { mode: "drive", km: "530 km", min: "≈ 6 h", from: "Mira, Cuenca", route: true }
+        },
+        {
+          t: "13:45", k: "bed", kicker: "Llegada", title: "Llaves en Baqueira y check-in",
+          dest: "42.699583,0.929472", place: "Carrèr Perimetrau, Baqueira", alt: "975 m",
+          desc: "Primera parada en el valle: recoger las llaves en el punto acordado, en Baqueira, y después entrar al alojamiento, en el Carrèr Castèth (Mijaran, a 400 m del centro de Vielha). La recogida está a 13,3 km y unos 15 minutos por la C-28, así que entre ida y vuelta se van unos 30 minutos de coche.",
+          tips: [
+            '<b>Punto de recogida:</b> <a href="https://goo.gl/maps/PUgQxNoYP5TtsNZ36" target="_blank" rel="noopener">enlace exacto de Google Maps</a> (Carrèr Perimetrau, Baqueira).',
+            "Si el anfitrión puede acercar las llaves a Vielha, os ahorráis el desvío y ganáis la tarde.",
+            "El alojamiento está en Mijaran: se aparca mejor en la zona del Palai de Gèu y se llega andando en 10 minutos."
+          ],
+          leg: { mode: "drive", km: "530 km", min: "≈ 6 h", from: "Mira, Cuenca" }
+        },
+        {
+          t: "15:25", k: "mountain", kicker: "Lago glaciar", title: "Bassa d'Oles", opt: true,
+          dest: "42.71588,0.77339", place: "Era Bassa d'Oles, Vielha", alt: "1.604 m",
+          desc: "Un lago de origen glaciar escondido entre hayedos, a 1.604 m, con un refugio en la orilla. El paseo alrededor del lago y del bosque son 2-3 km fáciles, ideales para estirar las piernas después del viaje y ver el valle antes de bajar al pueblo.",
+          tips: [
+            "<b>Opcional:</b> si el día se ha alargado, se salta sin problema y se cambia por un paseo más largo por Vielha.",
+            "La carretera de subida es estrecha y con curvas: 9 km, unos 22 minutos desde Vielha.",
+            "A 1.604 m en noviembre hace frío: guantes y gorro."
+          ],
+          img: "img/bassa-1.jpg", cap: "La Bassa d'Oles y su bosque de hayas",
+          leg: { mode: "drive", km: "9 km", min: "22 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "16:50", k: "church", kicker: "Paseo", title: "Casco antiguo y Sant Miquèu",
+          dest: "42.70130,0.79590", place: "Església de Sant Miquèu, Vielha", alt: "975 m",
+          desc: "La iglesia de Sant Miquèu es el corazón del pueblo: templo de origen románico (siglos XII-XIII) con campanario, retablo barroco y el Cristo de Mijaran. Alrededor, callejones de piedra, casas aranesas con balconadas de madera y la plaza donde late la vida del valle.",
+          tips: ["El paseo completo por el casco histórico lleva 30-40 minutos.", "Fíjate en las inscripciones y escudos de las fachadas del Carrèr Major."],
+          img: "img/sant-miqueu.jpg", cap: "Iglesia de Sant Miquèu de Vielha",
+          leg: { mode: "walk", km: "500 m", min: "6 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "17:30", k: "camera", kicker: "Luz dorada", title: "Puente sobre el Garona",
+          dest: "42.70267,0.79781", place: "42.70267,0.79781", alt: "970 m",
+          desc: "La pasarela peatonal que cruza el Garona junto al casco antiguo es el mejor sitio para la última luz: el río baja cargado, las fachadas se encienden y el agua se lleva el reflejo. El Garona nace aquí, en el valle, y muere en el Atlántico, en Burdeos.",
+          tips: ["El sol se pone a las <b>17:44</b>: llega con 20 minutos de margen.", "Trípode pequeño para larga exposición sobre el agua.", "Si buscas otra perspectiva, el puente de la Querimònia está a 80 m río arriba."],
+          leg: { mode: "walk", km: "350 m", min: "5 min", from: "42.70130,0.79590" }
+        },
+        {
+          t: "22:15", k: "food", kicker: "Cena", title: "Brasería El Racó", badge: "Reservado · 22:15",
+          dest: "Brasería El Racó, Vielha", place: "Brasería El Racó Vielha",
+          desc: "Cena contundente a base de brasa, carnes y platos de montaña, con mesa reservada a las 22:15. Es tarde, pero después de 530 km y un día largo es la mejor forma de cerrarlo: sin prisas y sin cola.",
+          tips: ["Mesa reservada a las <b>22:15</b>: no hace falta llegar antes.", "Pide la olla aranesa si está en carta: es el plato bandera del valle."],
+          leg: { mode: "walk", km: "600 m", min: "8 min", from: "42.70267,0.79781" }
+        }
+      ],
+      gallery: [
+        { src: "img/vielha-noche.jpg", cap: "Vielha de noche, con las luces del casco antiguo" },
+        { src: "img/bassa-2.jpg", cap: "Reflejos en la Bassa d'Oles" },
+        { src: "img/bassa-1.jpg", cap: "Hayedos alrededor del lago" }
+      ],
+      note: "El día 1 es largo: 530 km y seis paradas, una de ellas opcional. Si llegáis justos, saltad la Bassa d'Oles y quedaos con el paseo por Vielha y la luz del puente. Entre el puente y la cena hay un hueco de casi cinco horas: da para volver al alojamiento, ducharse y descansar antes de la brasa."
+    },
+    {
+      id: "dia-2", num: "02", dow: "Viernes", date: "6 de noviembre",
+      title: "Uelhs deth Joeu y Artiga de Lin",
+      subtitle: "Agua que cruza la montaña, hayedos dorados y la cascada del Varradòs por la tarde.",
+      hero: "img/artiga-1.jpg",
+      stats: { drive: "≈ 54 km", walk: "≈ 7 km", stops: "14 paradas", alt: "838 – 1.623 m" },
+      stops: [
+        {
+          t: "08:30", k: "food", kicker: "Desayuno", title: "Café y provisiones en Vielha",
+          dest: "Vielha, Lleida", place: "Vielha, Lleida",
+          desc: "Desayuno temprano en el centro y compra de bocadillos, fruta y agua: en la Artiga de Lin no hay donde comprar y el refugio puede estar cerrado entre semana.",
+          tips: ["Llena la cantimplora: hay fuentes en la ruta."],
+          leg: { mode: "walk", km: "—", min: "—", from: "Vielha, Lleida" }
+        },
+        {
+          t: "09:00", k: "drive", kicker: "Traslado", title: "Vielha → Es Bòrdes",
+          dest: "Es Bòrdes, Lleida", place: "Es Bòrdes, Val d'Aran", alt: "838 m",
+          desc: "Nueve kilómetros por la N-230 en dirección norte, remontando el Garona. Es Bòrdes es el pueblo más bajo del municipio y la puerta de entrada a los valles del Joèu y de Varradòs.",
+          tips: ["Aparca en el pueblo o en el ensanche antes de la pista."],
+          leg: { mode: "drive", km: "9,5 km", min: "11 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "09:20", k: "church", kicker: "Pueblo", title: "Es Bòrdes",
+          dest: "Es Bòrdes, Lleida", place: "Es Bòrdes, Val d'Aran", alt: "838 m",
+          desc: "Aquí se juntan el río Joèu y el Garona, y el pueblo conserva la escala de la montaña: iglesia de piedra, casas bajas y huertos. Es también el punto de información para saber si la pista de la Artiga de Lin está abierta.",
+          tips: ["Confirma el estado de la pista antes de subir, sobre todo si ha nevado."],
+          img: "img/esbordes-1.jpg", cap: "Iglesia de Es Bòrdes",
+          leg: { mode: "walk", km: "200 m", min: "3 min", from: "Es Bòrdes, Lleida" }
+        },
+        {
+          t: "09:40", k: "drive", kicker: "Pista de montaña", title: "Subida a la Artiga de Lin",
+          dest: "42.68330,0.70758", place: "Uelhs deth Joeu parking", alt: "≈ 1.450 m",
+          desc: "6,2 km de pista forestal con tramos estrechos y sin asfaltar hasta el aparcamiento de Uelhs deth Joeu. En temporada alta hay control horario de acceso; en noviembre suele estar abierta, pero conviene confirmarlo.",
+          tips: ["Se conduce despacio: 25 minutos reales, no 10.", "Si la pista está cerrada, se sube andando desde Es Bòrdes (más km y desnivel)."],
+          leg: { mode: "drive", km: "6,2 km", min: "25 min", from: "Es Bòrdes, Lleida" }
+        },
+        {
+          t: "10:10", k: "mountain", kicker: "Surgencia", title: "Uelhs deth Joeu",
+          dest: "42.68141,0.70753", place: "Uelhs deth Joeu", alt: "1.407 m",
+          desc: "Los «ojos del judío»: el agua brota de golpe de la pared de roca, en pleno hayedo. Es la misma agua que desaparece en el Forau d'Aigualluts, bajo el Aneto, y que resurge aquí después de atravesar la montaña. El mirador está a pocos metros del aparcamiento.",
+          tips: [
+            "20-30 minutos basta para verlo; el suelo está húmedo y resbaladizo.",
+            "Es el mejor sitio del día para foto de larga exposición: lleva trípode.",
+            "<b>Alternativa circular:</b> la ruta de Wikiloc «Uelhs deth Joèu – Trenien» son 3,8 km y solo 93 m de desnivel desde el mismo aparcamiento (fácil, 1 h de marcha y unas 2 h con paradas): pasa por el Pònt des Garonetes y el barranc de Pomèro, sin llegar a las praderas de la Artiga."
+          ],
+          img: "img/uelhs-2.jpg", cap: "El agua brotando en Uelhs deth Joeu",
+          links: [{ label: "Ruta en Wikiloc", href: "https://es.wikiloc.com/rutas-senderismo/uelhs-deth-joeu-trenien-269862361", i: "ext" }],
+          leg: { mode: "walk", km: "150 m", min: "2 min", from: "42.68330,0.70758" }
+        },
+        {
+          t: "11:00", k: "walk", kicker: "Sendero", title: "Caminata a la Artiga de Lin",
+          dest: "Era Artiga de Lin", place: "Era Artiga de Lin", alt: "1.209 m",
+          desc: "Unos 2,5 km de sendero entre hayedos, cascadas y prados de montaña hasta las praderas de la Artiga de Lin. En noviembre el bosque está en su mejor momento: hojas amarillas, musgo y agua por todas partes.",
+          tips: ["Ritmo tranquilo: 50-60 minutos con paradas de foto.", "Botas impermeables: el sendero puede estar embarrado."],
+          leg: { mode: "walk", km: "2,5 km", min: "≈ 50 min", from: "42.68141,0.70753" }
+        },
+        {
+          t: "12:00", k: "mountain", kicker: "Praderas", title: "Artiga de Lin",
+          dest: "42.70528,0.71234", place: "Era Artiga de Lin", alt: "1.209 m",
+          desc: "Una gran llanura de pastos rodeada de bosque y paredes calizas, con el refugio en el centro y vistas a los picos del Aneto y la Maladeta. Es uno de los paisajes más fotografiados del valle y, fuera de temporada, un lugar muy tranquilo.",
+          tips: ["El refugio puede estar cerrado entre semana: lleva comida.", "Si sobra tiempo, alarga la vuelta por la pista hasta el refugio y los miradores del valle."],
+          img: "img/artiga-2.jpg", cap: "Praderas y cumbres en la Artiga de Lin",
+          leg: { mode: "walk", km: "—", min: "—", from: "Era Artiga de Lin" }
+        },
+        {
+          t: "13:00", k: "drive", kicker: "Regreso", title: "Bajada a Es Bòrdes",
+          dest: "Es Bòrdes, Lleida", place: "Es Bòrdes, Val d'Aran", alt: "838 m",
+          desc: "Vuelta andando al coche por el mismo sendero (2,5 km) y descenso por la pista hasta Es Bòrdes.",
+          tips: ["Si hay hielo en la pista, baja en segunda y sin frenadas bruscas."],
+          leg: { mode: "drive", km: "6,2 km", min: "25 min", from: "42.68330,0.70758" }
+        },
+        {
+          t: "13:30", k: "food", kicker: "Comida", title: "Tauèrna Era Oelha Nera",
+          dest: "Era Oelha Nera, Es Bòrdes", place: "Era Oelha Nera Es Bòrdes",
+          desc: "Tauèrna de pueblo en una casa de piedra, en el mismo Es Bòrdes y a un paso del aparcamiento. Cocina aranesa de cuchara y brasa para reponer después de la mañana de senderismo.",
+          tips: ["Está en el Carrèr dera Artiga de Lin, dentro del pueblo: se llega andando, sin desvío.", "Reserva en fin de semana; el valle se llena y las mesas son pocas.", "Si la olla aranesa está en carta, es el plato para este día."],
+          leg: { mode: "walk", km: "250 m", min: "4 min", from: "Es Bòrdes, Lleida" }
+        },
+        {
+          t: "15:00", k: "drive", kicker: "Valle de Varradòs", title: "Es Bòrdes → Saut deth Pish",
+          dest: "42.77773,0.83454", place: "Saut deth Pish", alt: "1.623 m",
+          desc: "Subida por el valle de Varradòs hasta la cascada de Saut deth Pish. Son 14 km desde Es Bòrdes, pero los últimos tramos son pista forestal y se hacen despacio: cuenta unos 30 minutos.",
+          tips: ["Confirma el estado de la pista antes de subir: con nieve o hielo se cierra.", "Los últimos 7 km son pista; coche alto ayuda, pero no es imprescindible."],
+          leg: { mode: "drive", km: "14,3 km", min: "30 min", from: "Es Bòrdes, Lleida" }
+        },
+        {
+          t: "15:35", k: "mountain", kicker: "Cascada", title: "Saut deth Pish", alt: "1.623 m",
+          dest: "42.77773,0.83454", place: "Saut deth Pish",
+          desc: "El «salto del pez»: una cascada de unos 20 metros en el río Varradòs, rodeada de hayedos. Desde el aparcamiento hay apenas 20-30 minutos a pie hasta el mirador y el pie de la cascada, y el paseo por el bosque alarga la visita sin complicarla.",
+          tips: [
+            "<b>Luz:</b> en noviembre el barranco entra en sombra a media tarde. Con trípode y exposición larga el agua sale igual de bien; si quieres sol, sube antes de las 15:00.",
+            "El suelo está mojado y resbaladizo: botas y cuidado en las pasarelas.",
+            "Vuelta por el mismo camino o por el sendero del bosque, sin desnivel importante."
+          ],
+          img: "img/saut-2.jpg", cap: "La cascada del Varradòs",
+          leg: { mode: "walk", km: "1,5 km", min: "20-30 min", from: "42.77773,0.83454" }
+        },
+        {
+          t: "16:45", k: "drive", kicker: "Regreso", title: "Saut deth Pish → Vielha",
+          dest: "Vielha, Lleida", place: "Vielha, Lleida",
+          desc: "Bajada del valle de Varradòs con la última luz y vuelta a Vielha por la N-230. Llegada al alojamiento sobre las 17:20.",
+          tips: ["Si la pista está helada, baja en segunda y sin frenadas bruscas."],
+          leg: { mode: "drive", km: "17,3 km", min: "34 min", from: "42.77773,0.83454" }
+        },
+        {
+          t: "18:00", k: "info", kicker: "Tiempo libre", title: "Vielha sin prisa",
+          dest: "Vielha, Lleida", place: "Vielha, Lleida",
+          desc: "Ducha, café y compras. Si queda energía, el Musèu dera Val d'Aran (Casa Joanchiquet) explica la historia y la lengua del valle; consulta horarios porque en noviembre abre con horario reducido.",
+          tips: ["Aprovecha para reservar la comida del sábado en Bagergue.", "El paseo de Gausac queda para mañana al amanecer: 45 minutos y la mejor vista de Vielha."],
+          leg: { mode: "walk", km: "1,5 km", min: "20 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "20:00", k: "food", kicker: "Cena", title: "Era Lucana o Eth Bistro",
+          dest: "Era Lucana, Vielha", place: "Era Lucana Vielha",
+          desc: "La cena especial del plan: Era Lucana es una de las referencias gastronómicas del valle, con cocina de autor y producto local. Si buscáis algo más informal, Eth Bistro funciona muy bien.",
+          tips: ["Reserva con antelación: es el restaurante más demandado del fin de semana."],
+          leg: { mode: "walk", km: "600 m", min: "8 min", from: "Vielha, Lleida" }
+        }
+      ],
+      gallery: [
+        { src: "img/uelhs-1.jpg", cap: "Panorámica de la surgencia de Uelhs deth Joeu", wide: true },
+        { src: "img/artiga-1.jpg", cap: "Cascadas en el camino a la Artiga de Lin" },
+        { src: "img/uelhs-2.jpg", cap: "El río Joèu entre hayas" },
+        { src: "img/saut-1.jpg", cap: "Saut deth Pish entre hayedos" },
+        { src: "img/gausac-1.jpg", cap: "Gausac, el pueblo que mira Vielha desde lo alto" }
+      ],
+      note: "La cascada se visita ahora el viernes por la tarde, después de comer: así el domingo queda libre para volver sin prisa. Es la opción que recomiendo aunque el barranco ya esté en sombra, porque el agua y el hayedo funcionan igual de bien con luz plana y os deja el último día entero de margen. El paseo de Gausac queda para mañana a primera hora, que es cuando tiene luz."
+    },
+    {
+      id: "dia-3", num: "03", dow: "Sábado", date: "7 de noviembre",
+      title: "La ruta de los pueblos más bonitos",
+      subtitle: "Arties, Garòs, Salardú y Bagergue: piedra, campanarios y vistas.",
+      hero: "img/arties-1.jpg",
+      stats: { drive: "≈ 27 km", walk: "11 – 13,5 km", stops: "11 paradas", alt: "1.036 – 1.429 m" },
+      stops: [
+        {
+          t: "08:00", k: "walk", kicker: "Amanecer", title: "Vuelta corta a Gausac", opt: true,
+          dest: "Gausac, Vielha", place: "Gausac, Vielha", alt: "1.036 m",
+          desc: "Subida corta desde el alojamiento hasta Gausac, el pueblo que mira Vielha desde lo alto: casas de piedra, iglesia y una vista completa del valle con la luz de primera hora. La versión corta son 2,4 km de ida y vuelta y unos 45 minutos; el circular completo por la margen del Garona son 4 km y 1 h 15.",
+          tips: [
+            "Opcional: si preferís dormir, se salta y se sale a las 09:00 como está previsto.",
+            "Amanece a las 07:39 y a esa hora hace frío: guantes y frontal por si acaso.",
+            "Son 60 m de desnivel, suaves pero constantes. Vuelta al alojamiento para desayunar."
+          ],
+          img: "img/gausac-1.jpg", cap: "Gausac sobre el valle del Garona",
+          leg: { mode: "walk", km: "2,4 km", min: "45 min", from: "42.702385,0.7921793" }
+        },
+        {
+          t: "09:00", k: "drive", kicker: "Traslado", title: "Vielha → Arties",
+          dest: "Arties, Naut Aran", place: "Arties, Naut Aran", alt: "1.143 m",
+          desc: "Seis kilómetros por la C-28 remontando el Garona. Arties aparece entre puentes y casonas, con la iglesia en lo alto y el río partiendo el pueblo en dos.",
+          tips: ["Aparca en la entrada del pueblo, junto al río."],
+          leg: { mode: "drive", km: "6,7 km", min: "8 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "09:15", k: "church", kicker: "Románico", title: "Santa Maria d'Arties",
+          dest: "42.69789,0.87071", place: "Santa Maria d'Arties", alt: "1.143 m",
+          desc: "Iglesia de origen románico (siglos XI-XII) con ábside, espadaña y pinturas góticas en el interior. Es una de las joyas del valle y el mejor punto de partida para entender la arquitectura aranesa.",
+          tips: ["Si está abierta, entra: las pinturas murales merecen la pena.", "La fachada sur recibe la mejor luz por la mañana."],
+          img: "img/santamaria-1.jpg", cap: "Ábside y espadaña de Santa Maria d'Arties",
+          leg: { mode: "walk", km: "250 m", min: "4 min", from: "Arties, Naut Aran" }
+        },
+        {
+          t: "10:00", k: "camera", kicker: "Paseo", title: "Casco, puente y zona termal",
+          dest: "42.70005,0.87207", place: "Arties, Naut Aran", alt: "1.143 m",
+          desc: "Vuelta por el casco histórico, el puente de piedra sobre el Garona y el camino de los Banhs, la zona termal de Arties. Casas con balconadas, huertos y el ruido del agua acompañan todo el paseo.",
+          tips: ["El camino de los Banhs es llano y corto, ideal para fotos de río.", "Hay fuentes de agua termal junto al río."],
+          leg: { mode: "walk", km: "1,5 km", min: "25 min", from: "42.69789,0.87071" }
+        },
+        {
+          t: "10:45", k: "walk", kicker: "Sendero", title: "Arties → Garòs",
+          dest: "Garòs, Naut Aran", place: "Garòs, Naut Aran", alt: "1.120 m",
+          desc: "Cuatro kilómetros de sendero entre prados y bosque hasta Garòs, un pueblo diminuto con la iglesia de Sant Julià y vistas abiertas al valle. En coche son solo 2,4 km, pero el camino a pie es el plan del día.",
+          tips: ["Si vais con poco tiempo, hacedlo en coche y reservad la caminata para Bagergue.", "El sendero puede estar húmedo: calzado con agarre."],
+          img: "img/garos-1.jpg", cap: "Iglesia de Sant Julià de Garòs",
+          leg: { mode: "walk", km: "4 km", min: "≈ 1 h 10", from: "42.70005,0.87207" }
+        },
+        {
+          t: "12:00", k: "church", kicker: "Pueblo", title: "Salardú y Sant Andreu",
+          dest: "Salardú, Naut Aran", place: "Salardú, Naut Aran", alt: "1.282 m",
+          desc: "Salardú es la capital de Naut Aran y guarda una de las iglesias más importantes del valle: Sant Andreu, con el Cristo de Salardú (siglo XIII) y un campanario que domina el pueblo. Las calles empedradas y los miradores sobre el valle completan la visita.",
+          tips: ["Sube al mirador junto a la iglesia: vista completa del valle.", "Aparcamiento gratuito en la entrada del pueblo."],
+          img: "img/salardu-iglesia2.jpg", cap: "Salardú y la iglesia de Sant Andreu",
+          leg: { mode: "drive", km: "5,4 km", min: "7 min", from: "Garòs, Naut Aran" }
+        },
+        {
+          t: "13:30", k: "food", kicker: "Comida", title: "Casa Perú o Unhòla",
+          dest: "Casa Perú, Bagergue", place: "Casa Perú Bagergue",
+          desc: "Comida típica aranesa en Bagergue: Casa Perú es la recomendación del plan para probar cocina de montaña, y Unhòla es la alternativa si está lleno. Olla aranesa, carnes guisadas y postres de la casa.",
+          tips: ["Reserva sí o sí: es sábado y el pueblo es pequeño.", "Deja hueco para el queso de la zona."],
+          leg: { mode: "drive", km: "2,2 km", min: "6 min", from: "Salardú, Naut Aran" }
+        },
+        {
+          t: "15:00", k: "mountain", kicker: "El más alto", title: "Bagergue",
+          dest: "Bagergue, Naut Aran", place: "Bagergue, Naut Aran", alt: "1.429 m",
+          desc: "A 1.429 m, es el pueblo más alto de la Val d'Aran y uno de los más bonitos de España. Casas de piedra con balconadas de madera, queserías artesanas y vistas a las cumbres desde cada esquina.",
+          tips: ["Compra queso artesano: es la especialidad del pueblo.", "Las mejores vistas, desde la parte alta del pueblo."],
+          img: "img/bagergue-2.jpg", cap: "Calles de piedra de Bagergue",
+          leg: { mode: "walk", km: "300 m", min: "5 min", from: "Casa Perú, Bagergue" }
+        },
+        {
+          t: "16:00", k: "walk", kicker: "Ruta circular", title: "Vuelta a Bagergue (5 km)",
+          dest: "42.71910,0.91619", place: "Bagergue, Naut Aran", alt: "1.429 m",
+          desc: "Ruta circular de 5 km por los alrededores del pueblo, entre prados, muros de piedra seca y bosques de hoja caduca. Es el paseo otoñal del viaje: colores, silencio y vistas al valle de Salardú.",
+          tips: [
+            "<b>Ojo con la luz:</b> el sol se pone a las 17:42. Sal a las 16:00 como muy tarde.",
+            "1 h 30 de caminata tranquila, con poco desnivel acumulado.",
+            "Lleva frontal por si se alarga."
+          ],
+          img: "img/bagergue-1.jpg", cap: "Bagergue, uno de los pueblos más bonitos de España",
+          leg: { mode: "walk", km: "5 km", min: "≈ 1 h 30", from: "Bagergue, Naut Aran" }
+        },
+        {
+          t: "17:45", k: "drive", kicker: "Regreso", title: "Vuelta por Arties",
+          dest: "Arties, Naut Aran", place: "Arties, Naut Aran", alt: "1.143 m",
+          desc: "Descenso hacia Arties con la última luz sobre el valle. El plan original propone parar aquí para las tapas de la cena.",
+          tips: ["Si vais justos, id directos a Arties y dejad el coche en el aparcamiento del pueblo."],
+          leg: { mode: "drive", km: "5,6 km", min: "10 min", from: "42.71910,0.91619" }
+        },
+        {
+          t: "19:30", k: "food", kicker: "Cena", title: "Tapas en Urtau Arties",
+          dest: "Urtau Arties", place: "Tauèrna Urtau Arties",
+          desc: "Cena de tapas en la versión aranesa de Urtau: informal, animada y perfecta para cerrar el día sin complicaciones.",
+          tips: ["Suele haber ambiente a partir de las 20:00."],
+          leg: { mode: "walk", km: "200 m", min: "3 min", from: "Arties, Naut Aran" }
+        }
+      ],
+      gallery: [
+        { src: "img/arties-1.jpg", cap: "Otoño en el valle de Arties", wide: true },
+        { src: "img/bagergue-2.jpg", cap: "Balconadas y piedra en Bagergue" },
+        { src: "img/santandreu-1.jpg", cap: "Capiteles de Sant Andreu de Salardú" },
+        { src: "img/salardu-iglesia.jpg", cap: "Sant Andreu de Salardú" },
+        { src: "img/garos-1.jpg", cap: "Sant Julià de Garòs" }
+      ],
+      note: "Es el día con más kilómetros a pie (más de 12 km con la vuelta a Gausac). Si preferís algo más tranquilo, saltad Gausac y salid directos a Arties, o haced Arties-Garòs en coche y reservad las piernas para la ruta circular de Bagergue. El circ de Colomèrs queda fuera del viaje: son 4-6 h de ida y vuelta, unos 650 m de desnivel hasta el refugio (2.130 m) y un circo orientado al norte que en noviembre guarda nieve y sombra; el refugio está cerrado fuera de temporada. Es un objetivo de verano, no de una tarde de noviembre."
+    },
+    {
+      id: "dia-4", num: "04", dow: "Domingo", date: "8 de noviembre",
+      title: "Vuelta a casa",
+      subtitle: "Bossòst y Les si apetece mañana de pueblo; salida temprana si el cuerpo pide carretera.",
+      hero: "img/bossost-pano.jpg",
+      stats: { drive: "≈ 570 km", walk: "0 – 4,5 km", stops: "6 paradas", alt: "631 – 975 m" },
+      stops: [
+        {
+          t: "09:00", k: "bed", kicker: "Check-out", title: "Desayuno y salida del alojamiento",
+          dest: "Vielha, Lleida", place: "Vielha, Lleida", alt: "975 m",
+          desc: "Café tranquilo en Vielha, maletas al coche y decisión sobre la mañana: bajar al bajo valle o poner rumbo a casa directamente. Dejar el alojamiento pronto deja las dos opciones abiertas.",
+          tips: [
+            "<b>Dos planes:</b> con Bossòst y Les, llegada a Mira sobre las 21:15; sin paradas, sobre las 16:00.",
+            "Reposta antes de salir del valle: la N-230 tiene menos estaciones abiertas."
+          ],
+          leg: { mode: "walk", km: "—", min: "—", from: "Vielha, Lleida" }
+        },
+        {
+          t: "09:30", k: "drive", kicker: "Opcional", title: "Vielha → Bossòst", opt: true,
+          dest: "Bossòst, Val d'Aran", place: "Bossòst, Val d'Aran", alt: "717 m",
+          desc: "16 km por la N-230 bajando el Garona hasta Bossòst, el pueblo más señorial del bajo valle. Si prefieres salir ya hacia Mira, sáltate esta parada y la siguiente: son las únicas flexibles del día.",
+          tips: ["Bossòst está a 17 minutos de Vielha.", "Aparca en la entrada y sube andando al casco."],
+          leg: { mode: "drive", km: "16,3 km", min: "17 min", from: "Vielha, Lleida" }
+        },
+        {
+          t: "09:50", k: "church", kicker: "Paseo", title: "Bossòst y Les", opt: true,
+          dest: "Bossòst, Val d'Aran", place: "Bossòst, Val d'Aran", alt: "717 m",
+          desc: "Bossòst conserva casonas de piedra, iglesia y una historia ligada a los vidrieros que trabajaban al otro lado de la frontera. Desde allí, el paseo hasta Les —el pueblo más bajo de la Val d'Aran, a 631 m— va siguiendo el Garona entre huertos y puentes: 4-5 km de ida y vuelta, llanos.",
+          tips: ["Ruta urbana y de ribera, perfecta con niebla o lluvia suave.", "En Les, asómate al puente sobre el Garona antes de volver."],
+          img: "img/bossost-pano.jpg", cap: "Bossòst en el fondo del valle",
+          leg: { mode: "walk", km: "4,5 km", min: "≈ 1 h 15", from: "Bossòst, Val d'Aran" }
+        },
+        {
+          t: "12:45", k: "food", kicker: "Comida", title: "Es Arraïtzes o Casa Nostra", opt: true,
+          dest: "Es Arraïtzes, Val d'Aran", place: "Es Arraïtzes Val d'Aran",
+          desc: "Comida de despedida en Bossòst antes de coger el coche. Es Arraïtzes es la recomendación del plan; Casa Nostra, la alternativa si está lleno o cerrado.",
+          tips: ["Si sales temprano, come de camino: Barbastro o Zaragoza son buenas paradas.", "Pide la crema catalana antes de irte."],
+          leg: { mode: "walk", km: "300 m", min: "4 min", from: "Bossòst, Val d'Aran" }
+        },
+        {
+          t: "14:45", k: "drive", kicker: "Regreso", title: "Bossòst → Mira",
+          dest: "Mira, Cuenca", place: "Mira, Cuenca",
+          desc: "Vuelta por la N-230, el túnel de Vielha y la A-22/A-23 hasta Zaragoza y la N-330 hasta Mira. Unas 6 horas de conducción con una parada: llegada estimada sobre las 21:15.",
+          tips: ["Atardecer a las 17:41: los últimos 200 km son de noche.", "Calcula margen: el tráfico de domingo se nota a partir de Zaragoza."],
+          leg: { mode: "drive", km: "545 km", min: "≈ 6 h", from: "Bossòst, Val d'Aran" }
+        },
+        {
+          t: "21:15", k: "bed", kicker: "Final", title: "Llegada a Mira",
+          dest: "Mira, Cuenca", place: "Mira, Cuenca",
+          desc: "Fin del viaje. Cuatro días, dos valles, seis pueblos y una cascada: la Val d'Aran en su mejor versión otoñal.",
+          tips: [],
+          leg: { mode: "drive", km: "—", min: "—", from: "Mira, Cuenca" }
+        }
+      ],
+      gallery: [
+        { src: "img/bossost-pano.jpg", cap: "Bossòst y el fondo del valle", wide: true },
+        { src: "img/les-1.jpg", cap: "Les, el pueblo más bajo de la Val d'Aran" }
+      ],
+      note: "Domingo flexible a propósito. Si queréis llegar pronto, salid de Vielha a las 09:00 sin parar en Bossòst y estad en Mira sobre las 16:00. Si preferís aprovechar la mañana, Bossòst y Les caben de sobra antes de comer y la llegada se va a las 21:15. La cascada del Varradòs ya está hecha el viernes, así que no hay nada que os retenga."
+    }
+  ]
+};
+
+const FOOD = [
+  { name: "Era Coquèla", where: "Vielha", when: "Vielha · alternativa", desc: "Carnes y cocina aranesa moderna, con producto de temporada. Una de las mesas más interesantes del valle, por si queréis cenar aquí otro día.", q: "Era Coquèla Vielha" },
+  { name: "Tauèrna Urtau", where: "Vielha", when: "Vielha · alternativa", desc: "Tapas, raciones y ambiente informal en el centro. Perfecto para una comida rápida sin reserva.", q: "Tauèrna Urtau Vielha" },
+  { name: "Brasería El Racó", where: "Vielha", when: "Día 1 · cena · 22:15", desc: "Brasa y platos contundentes de montaña. Mesa reservada a las 22:15 para cerrar el día de carretera.", q: "Brasería El Racó Vielha" },
+  { name: "Tauèrna Era Oelha Nera", where: "Es Bòrdes", when: "Día 2 · comida", desc: "Cocina aranesa de pueblo, de cuchara y brasa, en una casa de piedra del mismo Es Bòrdes. La parada del viernes tras la Artiga de Lin.", q: "Era Oelha Nera Es Bòrdes" },
+  { name: "Era Lucana", where: "Vielha", when: "Día 2 · cena", desc: "Una de las referencias gastronómicas del valle. La cena especial del viaje.", q: "Era Lucana Vielha" },
+  { name: "Eth Bistro", where: "Vielha", when: "Día 2 · alternativa", desc: "Opción más informal para la noche del viernes si Era Lucana está completo.", q: "Eth Bistro Vielha" },
+  { name: "Casa Perú", where: "Bagergue", when: "Día 3 · comida", desc: "Comida típica de montaña en el pueblo más alto del valle. Olla aranesa y carnes guisadas.", q: "Casa Perú Bagergue" },
+  { name: "Unhòla", where: "Bagergue", when: "Día 3 · alternativa", desc: "Alternativa en el mismo pueblo si Casa Perú no tiene mesa.", q: "Unhòla Bagergue" },
+  { name: "Urtau Arties", where: "Arties", when: "Día 3 · cena", desc: "Tapas y ambiente animado para cerrar el sábado.", q: "Tauèrna Urtau Arties" },
+  { name: "Es Arraïtzes", where: "Val d'Aran", when: "Día 4 · comida · opcional", desc: "Comida de despedida antes de emprender el viaje de vuelta, si os quedáis a comer en Bossòst.", q: "Es Arraïtzes Val d'Aran" },
+  { name: "Casa Nostra", where: "Bossòst", when: "Día 4 · alternativa · opcional", desc: "Opción de reserva para el domingo si el plan del bajo valle sigue adelante.", q: "Casa Nostra Bossòst" }
+];
+
+const DISHES = [
+  "Olla aranesa: el guiso bandera del valle, con legumbres, carne y embutido.",
+  "Civet de jabalí o de venado, muy típico en otoño.",
+  "Paté aranés y embutidos de montaña.",
+  "Longaniza y carnes a la brasa.",
+  "Quesos del Pirineo, especialmente los de Bagergue.",
+  "Crema catalana y postres tradicionales para terminar."
+];
+
+const TIPS = [
+  { icon: "snow", title: "Noviembre en el valle", text: "Días cortos: amanece a las 07:35 y anochece a las 17:42. Planifica las rutas por la mañana y reserva la tarde para pueblos y coche. Temperaturas de 0 a 15 °C, con posibilidad de nieve en cotas altas." },
+  { icon: "car", title: "Coche y cadenas", text: "La N-230 y las pistas altas pueden exigir cadenas. Llévalas siempre, junto con rasqueta, anticongelante y linterna. Reposta al entrar y al salir del valle." },
+  { icon: "route", title: "Pistas y accesos", text: "Artiga de Lin y Saut deth Pish se suben por pista forestal. En temporada alta hay control horario; en noviembre suele estar abierta, pero confirma el estado antes de subir." },
+  { icon: "camera", title: "Luz y fotografía", text: "La hora dorada va de las 16:30 a las 17:40. Los mejores escenarios: el puente del Garona al atardecer, la Bassa d'Oles a media tarde, la Artiga de Lin a media mañana y Bagergue por la tarde. El barranco del Varradòs pierde el sol pronto: allí funciona mejor la exposición larga." },
+  { icon: "food", title: "Reservas", text: "La cena del jueves está reservada a las 22:15 en El Racó. Falta asegurar la cena del viernes y la comida del sábado: es fin de semana y los pueblos son pequeños. Muchos restaurantes cierran un día entre semana." },
+  { icon: "info", title: "Dinero y cobertura", text: "Lleva efectivo para los pueblos pequeños y para los aparcamientos. La cobertura móvil es irregular en las pistas: descarga el mapa offline antes de salir." }
+];
+
+const CHECK = [
+  { title: "Ropa y equipo", icon: "mountain", items: ["Forro polar o pluma", "Impermeable y cortavientos", "Botas impermeables de montaña", "Gorro, guantes y bufanda", "Muda de repuesto y calcetines", "Gafas de sol y crema solar"] },
+  { title: "Coche", icon: "car", items: ["Cadenas o fundas de nieve", "Rasqueta y anticongelante", "Linterna y chaleco reflectante", "Cargador y soporte de móvil", "Mapa offline descargado"] },
+  { title: "Mochila de ruta", icon: "walk", items: ["Agua (1,5 L por persona)", "Bocadillos y fruta", "Frontal o linterna", "Botiquín básico", "Powerbank", "Bolsa para residuos"] }
+];
+
+const CREDITS = [
+  ["arties-1.jpg", "Tardor a Arties", "Aimaras", "CC BY-SA 3.0"],
+  ["bagergue-1.jpg", "Bagergue (Val d'Aran)", "Norhum", "CC BY-SA 4.0"],
+  ["bagergue-2.jpg", "Bagergue 03", "Millars", "CC BY-SA 4.0"],
+  ["bassa-1.jpg", "Vista de la Bassa d'Oles", "Urisole", "CC BY-SA 4.0"],
+  ["bassa-2.jpg", "Bassa d'Oles 2", "Urisole", "CC BY-SA 4.0"],
+  ["bossost-pano.jpg", "Pano of Bossòst in Aran Valley", "Nickj", "CC BY-SA 3.0"],
+  ["esbordes-1.jpg", "Es Bòrdes (church)", "Jordiferrer", "CC BY-SA 3.0"],
+  ["garos-1.jpg", "Sant Julià de Garòs", "Isidre blanc", "CC BY-SA 3.0"],
+  ["gausac-1.jpg", "Gausac, Val d'Aran", "Isidre blanc", "CC BY-SA 4.0"],
+  ["les-1.jpg", "Les village", "Père Igor", "CC BY-SA 3.0"],
+  ["olla-1.jpg", "Olla aranesa", "juancandela225", "CC BY 2.0"],
+  ["salardu-iglesia.jpg", "Sant Andreu de Salardú", "Vassil", "CC0"],
+  ["salardu-iglesia2.jpg", "Sant Andreu de Salardú", "Vassil", "CC0"],
+  ["sant-miqueu.jpg", "Església de Sant Miquel de Viella", "DagafeSQV", "CC BY-SA 3.0"],
+  ["santamaria-1.jpg", "Santa Maria d'Arties", "Jordiferrer", "CC BY-SA 3.0"],
+  ["santandreu-1.jpg", "Sant Andreu de Salardú", "Enrique López-Tamayo Biosca", "CC BY 2.0"],
+  ["saut-1.jpg", "Saut deth pish", "Alesper33", "CC BY-SA 4.0"],
+  ["saut-2.jpg", "Eth Saut deth Pish", "Isidro Jabato", "CC BY-SA 4.0"],
+  ["uelhs-1.jpg", "Uelhs deth Joeu, panoràmica", "Isidro Jabato", "CC BY-SA 4.0"],
+  ["uelhs-2.jpg", "Uelhs deth Joèu", "DagafeSQV", "CC BY-SA 3.0"],
+  ["vielha-noche.jpg", "Night in Viella", "Manuel Pino", "CC BY-SA 3.0"],
+  ["artiga-1.jpg", "Era Artiga de Lin", "DagafeSQV", "CC BY-SA 3.0"],
+  ["artiga-2.jpg", "Artiga de Lin i Malh de Pois", "Aimaras", "CC BY-SA 3.0"]
+];
+
+const WEATHER = [
+  { d: "Jue 5", code: "Lluvia débil", max: 12.7, min: 0.1, rain: 8, icon: "🌦" },
+  { d: "Vie 6", code: "Poco nuboso", max: 15.1, min: 0.1, rain: 2, icon: "🌤" },
+  { d: "Sáb 7", code: "Nuboso", max: 15.2, min: 2.1, rain: 8, icon: "⛅" },
+  { d: "Dom 8", code: "Lluvia débil", max: 16.4, min: 3.0, rain: 31, icon: "🌦" }
+];
+</script>
+<script>
+/* ============================================================
+   RENDER
+   ============================================================ */
+
+const $ = (s, r = document) => r.querySelector(s);
+const icon = (n, s = 16) => '<svg width="' + s + '" height="' + s + '" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
+const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+const DAY_ROUTES = {
+  "dia-1": ["Mira, Cuenca", "42.702385,0.7921793", "42.699583,0.929472", "42.71588,0.77339", "42.70267,0.79781"],
+  "dia-2": ["42.702385,0.7921793", "Es Bòrdes, Lleida", "42.68330,0.70758", "42.70528,0.71234", "Es Bòrdes, Lleida", "42.77773,0.83454"],
+  "dia-3": ["42.702385,0.7921793", "Arties, Naut Aran", "Garòs, Naut Aran", "Salardú, Naut Aran", "Bagergue, Naut Aran"],
+  "dia-4": ["42.702385,0.7921793", "Bossòst, Val d'Aran", "Les, Val d'Aran", "Mira, Cuenca"]
+};
+
+const KEY_LEGS = [
+  ["Mira → Vielha", "530 km · 6 h"],
+  ["Vielha → Baqueira (llaves)", "13,3 km · 15 min"],
+  ["Vielha → Bassa d'Oles", "9 km · 22 min"],
+  ["Vielha → Es Bòrdes", "9,5 km · 11 min"],
+  ["Es Bòrdes → Uelhs deth Joeu", "6,2 km · 25 min"],
+  ["Es Bòrdes → Saut deth Pish", "14,3 km · 30 min"],
+  ["Vielha → Arties", "6,7 km · 8 min"],
+  ["Salardú → Bagergue", "2,2 km · 6 min"],
+  ["Vielha → Bossòst", "16,3 km · 17 min"],
+  ["Bossòst → Les", "3,2 km · 4 min"]
+];
+
+/* Rutas dibujadas en la sección "Mapa de cada día".
+   Geometría real de carretera (OSRM / OpenStreetMap), simplificada a ~10 m.
+   Formato: [lon, lat]. */
+const ROUTES = {
+  "dia-1": {
+    title: "Jueves 5 · llegada y primer paseo",
+    desc: "Del alojamiento a Baqueira por las llaves, subida al lago de la Bassa d'Oles y regreso a Vielha para el paseo del casco antiguo y el puente del Garona.",
+    chip: "46 km en el valle · 1 h 15",
+    transfer: "Mira → Vielha: 530 km · 6 h (fuera del mapa)",
+    stops: [
+      { n: "Vielha", s: "13:45 · llaves y check-in", p: [0.7966, 42.7025] },
+      { n: "Baqueira", s: "14:15 · recogida de llaves", p: [0.9295, 42.6996] },
+      { n: "Bassa d'Oles", s: "15:25 · lago glaciar", p: [0.7734, 42.7159], opt: true }
+    ],
+    path: [[0.7966,42.7025],[0.7957,42.7019],[0.7969,42.701],[0.8058,42.6973],[0.8146,42.6967],[0.8327,42.6993],[0.8387,42.6983],[0.8504,42.7001],[0.8599,42.6995],[0.8657,42.7013],[0.87,42.7003],[0.8877,42.7039],[0.8945,42.7067],[0.9046,42.7073],[0.9159,42.7033],[0.9102,42.7072],[0.929,42.7004],[0.934,42.6971],[0.9167,42.7056],[0.9099,42.7071],[0.9158,42.7033],[0.9045,42.7073],[0.894,42.7069],[0.8877,42.7039],[0.8703,42.7005],[0.8654,42.7013],[0.8599,42.6995],[0.8504,42.7001],[0.839,42.6983],[0.8327,42.6993],[0.8146,42.6967],[0.806,42.6974],[0.7931,42.7031],[0.7918,42.7089],[0.7905,42.708],[0.7936,42.7149],[0.793,42.7165],[0.787,42.718],[0.7805,42.7229],[0.7887,42.7152],[0.7845,42.7171],[0.7867,42.7154],[0.7858,42.7142],[0.7846,42.7161],[0.7843,42.7147],[0.7782,42.7195],[0.7746,42.7202],[0.7784,42.7177],[0.7787,42.7146],[0.7759,42.7143],[0.7765,42.7134],[0.7744,42.7146],[0.7765,42.7134],[0.7759,42.7143],[0.7787,42.7146],[0.7784,42.7177],[0.7746,42.7202],[0.7782,42.7195],[0.7843,42.7147],[0.7846,42.7161],[0.7858,42.7142],[0.7867,42.7154],[0.7845,42.7171],[0.7887,42.7152],[0.7805,42.7229],[0.787,42.718],[0.793,42.7166],[0.7936,42.7149],[0.7905,42.708],[0.7918,42.7089],[0.7921,42.7051],[0.7942,42.704],[0.7932,42.7029],[0.7974,42.7008],[0.7982,42.7028]]
+  },
+  "dia-2": {
+    title: "Viernes 6 · agua y hayedos",
+    desc: "Artiga de Lin por la mañana y cascada del Varradòs por la tarde, con Es Bòrdes como base de las dos subidas.",
+    chip: "54 km · 2 h 30 al volante",
+    transfer: "Salida y llegada a Vielha",
+    stops: [
+      { n: "Vielha", s: "08:30 · desayuno", p: [0.7966, 42.7025] },
+      { n: "Es Bòrdes", s: "09:20 · pueblo", p: [0.7200, 42.7375] },
+      { n: "Uelhs deth Joeu", s: "10:10 · surgencia", p: [0.7075, 42.6814] },
+      { n: "Artiga de Lin", s: "12:00 · praderas", p: [0.7123, 42.7053] },
+      { n: "Saut deth Pish", s: "15:35 · cascada", p: [0.8345, 42.7777] }
+    ],
+    path: [[0.7966,42.7025],[0.7934,42.7031],[0.7956,42.7053],[0.7966,42.7092],[0.7973,42.7137],[0.7961,42.7178],[0.7906,42.7214],[0.7898,42.7235],[0.7746,42.7329],[0.7565,42.7379],[0.745,42.7367],[0.732,42.7387],[0.7191,42.7379],[0.7209,42.7337],[0.7293,42.73],[0.7305,42.7272],[0.7248,42.7217],[0.7181,42.7096],[0.7125,42.7048],[0.7111,42.6995],[0.7117,42.6985],[0.7138,42.6999],[0.7138,42.6985],[0.7095,42.6939],[0.7125,42.7048],[0.7182,42.709],[0.7125,42.7048],[0.7111,42.6995],[0.7117,42.6985],[0.7138,42.6999],[0.7137,42.6984],[0.7094,42.6939],[0.7125,42.7048],[0.7181,42.7096],[0.7248,42.7217],[0.7305,42.7272],[0.7293,42.73],[0.7209,42.7337],[0.7192,42.738],[0.732,42.7387],[0.7443,42.7367],[0.7566,42.7377],[0.7542,42.7396],[0.7562,42.7439],[0.7596,42.7452],[0.7628,42.7529],[0.7681,42.7547],[0.7727,42.7583],[0.7728,42.7607],[0.7715,42.7602],[0.7754,42.766],[0.7804,42.769],[0.7805,42.771],[0.7894,42.7737],[0.7857,42.774],[0.7873,42.7748],[0.7868,42.776],[0.7935,42.7769],[0.8063,42.775],[0.8324,42.7767]]
+  },
+  "dia-3": {
+    title: "Sábado 7 · los pueblos de Naut Aran",
+    desc: "Arties, Garòs, Salardú y Bagergue en un solo eje, con la vuelta por el mismo valle al atardecer.",
+    chip: "27 km · 40 min al volante",
+    transfer: "Salida y llegada a Vielha",
+    stops: [
+      { n: "Vielha", s: "09:00 · salida", p: [0.7966, 42.7025] },
+      { n: "Arties", s: "09:15 · Santa Maria", p: [0.8707, 42.6979] },
+      { n: "Garòs", s: "10:45 · sendero", p: [0.8454, 42.7000] },
+      { n: "Salardú", s: "12:00 · Sant Andreu", p: [0.9025, 42.7076] },
+      { n: "Bagergue", s: "15:00 · el más alto", p: [0.9162, 42.7191] }
+    ],
+    path: [[0.7966,42.7025],[0.7957,42.7019],[0.7969,42.701],[0.8012,42.6992],[0.8039,42.6987],[0.8058,42.6973],[0.8142,42.6967],[0.819,42.6981],[0.8218,42.6978],[0.8327,42.6993],[0.8387,42.6983],[0.8413,42.6991],[0.8464,42.699],[0.8504,42.7001],[0.8526,42.7],[0.8548,42.7003],[0.8599,42.6995],[0.8657,42.7013],[0.8714,42.6998],[0.8725,42.6999],[0.8726,42.6996],[0.8718,42.6993],[0.8715,42.6985],[0.8699,42.6977],[0.8715,42.6985],[0.8718,42.6993],[0.8726,42.6996],[0.8725,42.6999],[0.8714,42.6998],[0.8702,42.7002],[0.87,42.7006],[0.8693,42.7005],[0.8663,42.7013],[0.8646,42.7011],[0.8599,42.6995],[0.8543,42.7003],[0.8526,42.7],[0.8499,42.7],[0.846,42.699],[0.8449,42.6997],[0.8447,42.7003],[0.8465,42.6994],[0.8468,42.6999],[0.8477,42.6996],[0.8488,42.7],[0.8526,42.7],[0.8545,42.7003],[0.8599,42.6995],[0.8657,42.7013],[0.87,42.7003],[0.872,42.7011],[0.8754,42.7017],[0.8774,42.7027],[0.8828,42.7036],[0.8877,42.7039],[0.8937,42.7067],[0.9011,42.7066],[0.9015,42.7071],[0.9036,42.7076],[0.9052,42.7093],[0.9055,42.7108],[0.9063,42.7114],[0.9107,42.7117],[0.9131,42.7132],[0.9144,42.7136],[0.9143,42.7141],[0.9134,42.7146],[0.9133,42.7152],[0.9137,42.7155],[0.9162,42.7162],[0.916,42.7167],[0.9165,42.7173],[0.9154,42.7182],[0.9161,42.7191]]
+  },
+  "dia-4": {
+    title: "Domingo 8 · vuelta a casa",
+    desc: "Mañana opcional en el bajo valle y salida hacia Mira. Si se sale pronto, este tramo se salta entero.",
+    chip: "20 km en el valle · 30 min",
+    transfer: "Bossòst → Mira: 545 km · 6 h (fuera del mapa)",
+    stops: [
+      { n: "Vielha", s: "09:00 · check-out", p: [0.7966, 42.7025] },
+      { n: "Bossòst", s: "09:50 · paseo", p: [0.6919, 42.7869], opt: true },
+      { n: "Les", s: "11:15 · el más bajo", p: [0.7100, 42.8110], opt: true }
+    ],
+    path: [[0.7966,42.7025],[0.7957,42.7019],[0.7934,42.7031],[0.7956,42.7053],[0.7966,42.7092],[0.7973,42.7137],[0.7967,42.7169],[0.7961,42.7178],[0.7949,42.7188],[0.794,42.7202],[0.7906,42.7214],[0.7898,42.7235],[0.7868,42.7243],[0.7842,42.7261],[0.7831,42.7275],[0.7803,42.7294],[0.7779,42.7302],[0.7749,42.7328],[0.7735,42.7332],[0.7681,42.7338],[0.7651,42.7359],[0.7603,42.7365],[0.7586,42.7375],[0.7565,42.7379],[0.7534,42.7376],[0.751,42.738],[0.7489,42.7377],[0.7465,42.7368],[0.744,42.7368],[0.7345,42.7378],[0.732,42.7387],[0.7284,42.7382],[0.7255,42.7388],[0.7232,42.7388],[0.7193,42.7394],[0.7156,42.7412],[0.7105,42.7416],[0.7092,42.7423],[0.7052,42.7457],[0.7012,42.7486],[0.7004,42.7502],[0.6981,42.7528],[0.6971,42.7552],[0.6946,42.7579],[0.6926,42.7593],[0.6912,42.7619],[0.687,42.7656],[0.6849,42.7738],[0.6851,42.7764],[0.6861,42.7774],[0.6889,42.7785],[0.6896,42.779],[0.6905,42.7814],[0.6924,42.784],[0.6928,42.7853],[0.6922,42.7855],[0.6917,42.7863],[0.6923,42.7874],[0.6927,42.7878],[0.6945,42.788],[0.6968,42.7896],[0.698,42.7918],[0.6981,42.7946],[0.6998,42.7965],[0.7028,42.8008],[0.7036,42.8037],[0.706,42.8065],[0.7071,42.8084],[0.7095,42.8099],[0.7099,42.811]]
+  }
+};
+
+const niceScale = [0.5, 1, 2, 5, 10, 20, 50];
+
+function routeSVG(id) {
+  const r = ROUTES[id];
+  const W = 900, H = 440;
+  const pad = { l: 56, r: 56, t: 54, b: 58 };
+  const merc = (lon, lat) => [lon, Math.log(Math.tan(Math.PI / 4 + (lat * Math.PI) / 360)) * 180 / Math.PI];
+  const all = r.path.map(p => merc(p[0], p[1])).concat(r.stops.map(s => merc(s.p[0], s.p[1])));
+  const xs = all.map(p => p[0]), ys = all.map(p => p[1]);
+  const minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs);
+  const minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
+  const sc = Math.min((W - pad.l - pad.r) / (maxX - minX), (H - pad.t - pad.b) / (maxY - minY));
+  const ox = pad.l + ((W - pad.l - pad.r) - (maxX - minX) * sc) / 2;
+  const oy = pad.t + ((H - pad.t - pad.b) - (maxY - minY) * sc) / 2;
+  const X = (x) => ox + (x - minX) * sc;
+  const Y = (y) => oy + (maxY - y) * sc;
+
+  const d = r.path.map((p, i) => {
+    const q = merc(p[0], p[1]);
+    return (i ? "L" : "M") + X(q[0]).toFixed(1) + " " + Y(q[1]).toFixed(1);
+  }).join(" ");
+
+  const latC = (Math.min.apply(null, r.stops.map(s => s.p[1])) + Math.max.apply(null, r.stops.map(s => s.p[1]))) / 2;
+  const kmPerPx = (1 / sc) * 111.32 * Math.cos(latC * Math.PI / 180);
+  let km = niceScale[0];
+  for (const v of niceScale) { if (v / kmPerPx <= 150) { km = v; } if (v / kmPerPx >= 70 && v / kmPerPx <= 150) { km = v; break; } }
+  const barPx = km / kmPerPx;
+
+  const placed = [];
+  const hit = (b) => placed.some(p => b.x1 < p.x2 && b.x2 > p.x1 && b.y1 < p.y2 && b.y2 > p.y1);
+  const cands = [[18, -9, "start"], [18, 21, "start"], [-18, -9, "end"], [-18, 21, "end"], [0, -26, "middle"], [0, 38, "middle"]];
+  const marks = r.stops.map((s, i) => {
+    const q = merc(s.p[0], s.p[1]);
+    const cx = X(q[0]), cy = Y(q[1]);
+    const w = s.n.length * 7.6 + 4;
+    placed.push({ x1: cx - 15, x2: cx + 15, y1: cy - 15, y2: cy + 15 });
+    let pick = null, box = null;
+    for (const c of cands) {
+      const left = c[2] === "middle" ? cx + c[0] - w / 2 : c[2] === "end" ? cx + c[0] - w : cx + c[0];
+      const b = { x1: left - 3, x2: left + w + 3, y1: cy + c[1] - 12, y2: cy + c[1] + 5 };
+      if (b.x1 < 10 || b.x2 > W - 10) continue;
+      if (hit(b)) continue;
+      pick = c; box = b; break;
+    }
+    if (!pick) {
+      pick = cands[0];
+      const left = cx + pick[0];
+      box = { x1: left - 3, x2: left + w + 3, y1: cy + pick[1] - 12, y2: cy + pick[1] + 5 };
+    }
+    placed.push(box);
+    return '<g class="rmmark">' +
+      '<circle cx="' + cx.toFixed(1) + '" cy="' + cy.toFixed(1) + '" r="12.5" fill="var(--surface)" stroke="var(--accent)" stroke-width="2.5"/>' +
+      '<text x="' + cx.toFixed(1) + '" y="' + (cy + 4.3).toFixed(1) + '" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--accent)">' + (i + 1) + "</text>" +
+      '<text class="rmlabel" x="' + (cx + pick[0]).toFixed(1) + '" y="' + (cy + pick[1]).toFixed(1) + '" text-anchor="' + pick[2] + '" font-size="14.5" font-weight="650" fill="var(--ink)"' +
+        ' paint-order="stroke" stroke="var(--surface)" stroke-width="4.5" stroke-linejoin="round">' + esc(s.n) + "</text>" +
+      "</g>";
+  }).join("");
+
+  return '<svg viewBox="0 0 ' + W + " " + H + '" preserveAspectRatio="xMidYMid meet" role="presentation" xmlns="http://www.w3.org/2000/svg">' +
+    "<defs>" +
+      '<linearGradient id="rmbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--surface)"/><stop offset="1" stop-color="var(--surface-2)"/></linearGradient>' +
+      '<pattern id="rmgrid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="var(--line)" stroke-width="1" opacity=".7"/></pattern>' +
+    "</defs>" +
+    '<rect width="' + W + '" height="' + H + '" fill="url(#rmbg)"/>' +
+    '<rect width="' + W + '" height="' + H + '" fill="url(#rmgrid)"/>' +
+    '<path d="' + d + '" fill="none" stroke="var(--accent)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" opacity=".13"/>' +
+    '<path d="' + d + '" fill="none" stroke="var(--accent)" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>' +
+    marks +
+    '<g transform="translate(' + (W - pad.r - barPx).toFixed(1) + "," + (H - 26) + ')">' +
+      '<path d="M0 0H' + barPx.toFixed(1) + '" stroke="var(--muted)" stroke-width="2"/>' +
+      '<path d="M0 -5V5M' + barPx.toFixed(1) + ' -5V5" stroke="var(--muted)" stroke-width="2"/>' +
+      '<text x="' + (barPx / 2).toFixed(1) + '" y="-10" text-anchor="middle" font-size="11.5" fill="var(--muted)">' + (km < 1 ? km * 1000 + " m" : km + " km") + "</text>" +
+    "</g>" +
+    '<text x="' + pad.l + '" y="' + (H - 22) + '" font-size="11.5" fill="var(--muted)">Trazado real de carretera · OSRM / OpenStreetMap</text>' +
+    "</svg>";
+}
+
+function routesHTML() {
+  const tabs = TRIP.days.map((d, i) =>
+    '<button type="button" role="tab" data-route="' + d.id + '" aria-selected="' + (i === 0) + '" aria-controls="routeMap">' +
+    "<b>" + esc(d.dow.slice(0, 3)) + "</b> " + esc(d.date.split(" de ")[0]) + "</button>").join("");
+  return '<section id="rutas"><div class="wrap">' +
+    '<div class="sec-head"><div class="kicker">Las rutas, dibujadas</div>' +
+    "<h2>Mapa de cada día</h2>" +
+    "<p>El trazado real de carretera de cada jornada, con las paradas numeradas y su hora. Se dibuja en el propio archivo, sin conexión; el botón abre la ruta navegable en Google Maps.</p></div>" +
+    '<div class="routemap">' +
+      '<div class="routemap__tabs" role="tablist" aria-label="Elige el día">' + tabs + "</div>" +
+      '<div class="routemap__map">' +
+        '<div class="routemap__svg" id="routeMap"></div>' +
+        '<p class="routemap__legend"><span>Vista esquemática del valle · sin tráfico en tiempo real</span><span id="rmTransfer"></span></p>' +
+      "</div>" +
+      '<div class="routemap__side">' +
+        '<h3 id="rmTitle"></h3><p id="rmDesc"></p>' +
+        '<div class="rmmeta"><span class="chip" id="rmChip"></span></div>' +
+        '<ol class="rmstops" id="rmStops"></ol>' +
+        '<div class="actions"><a class="btn btn--solid" id="rmLink" target="_blank" rel="noopener">' + icon("route", 14) + " Abrir en Google Maps</a>" +
+        '<a class="btn" id="rmDay">' + icon("arrow", 14) + " Ver el día</a></div>" +
+      "</div>" +
+    "</div></div></section>";
+}
+
+function paintRoute(id) {
+  const r = ROUTES[id];
+  const svg = $("#routeMap");
+  svg.innerHTML = routeSVG(id);
+  svg.setAttribute("aria-label", "Mapa de la ruta del " + r.title);
+  $("#rmTitle").textContent = r.title;
+  $("#rmDesc").textContent = r.desc;
+  $("#rmChip").innerHTML = icon("car", 12) + esc(r.chip);
+  $("#rmTransfer").textContent = r.transfer;
+  $("#rmStops").innerHTML = r.stops.map(s =>
+    "<li>" + esc(s.n) + (s.opt ? "<em>opcional</em>" : "") + "<span>" + esc(s.s) + "</span></li>").join("");
+  $("#rmLink").href = MAPS.multi(DAY_ROUTES[id]);
+  $("#rmDay").href = "#" + id;
+  document.querySelectorAll("[data-route]").forEach(b =>
+    b.setAttribute("aria-selected", String(b.dataset.route === id)));
+}
+
+function legRow(leg) {
+  if (!leg || leg.km === "—") return "";
+  const isWalk = leg.mode === "walk";
+  const ic = isWalk ? "walk" : "car";
+  const label = isWalk ? "A pie" : "En coche";
+  let route = "";
+  if (leg.from && leg.dest && leg.from !== leg.dest && leg.route !== false) {
+    route = '<a href="' + MAPS.dir(leg.from, leg.dest, isWalk ? "walking" : "driving") + '" target="_blank" rel="noopener">' +
+      icon("route", 13) + " Ruta en Maps</a>";
+  }
+  return '<div class="leg"><span class="leg__icon">' + icon(ic, 14) + "</span>" +
+    "<span>" + label + " · <b>" + leg.km + "</b> · " + leg.min + "</span>" +
+    '<i class="leg__dash"></i>' + route + "</div>";
+}
+
+function stopHTML(stop, idx) {
+  const media = stop.img
+    ? '<figure class="card__media" data-full="' + stop.img + '" data-cap="' + esc(stop.cap || stop.title) + '">' +
+        '<img src="' + stop.img + '" alt="' + esc(stop.cap || stop.title) + '" loading="lazy">' +
+        "<figcaption>" + esc(stop.cap || "") + "</figcaption></figure>"
+    : "";
+  const tips = stop.tips && stop.tips.length
+    ? '<ul class="tips">' + stop.tips.map(t => "<li>" + t + "</li>").join("") + "</ul>" : "";
+  const tags = [];
+  if (stop.alt) tags.push('<span class="alt">' + stop.alt + "</span>");
+  if (stop.opt) tags.push('<span class="badge badge--opt">Opcional</span>');
+  if (stop.badge) tags.push('<span class="badge badge--ok">' + esc(stop.badge) + "</span>");
+  const tagHTML = tags.length ? '<span class="kicker__tags">' + tags.join("") + "</span>" : "";
+  const keyClass = idx === 0 ? " stop--key" : "";
+  const extra = (stop.links || []).map(l =>
+    '<a class="btn" href="' + l.href + '" target="_blank" rel="noopener">' + icon(l.i || "ext", 14) + " " + esc(l.label) + "</a>").join("");
+  return '<article class="stop reveal' + keyClass + '">' +
+    '<div class="stop__time"><b>' + stop.t + "</b></div>" +
+    '<div class="stop__main">' +
+      legRow(stop.leg ? Object.assign({}, stop.leg, { dest: stop.dest }) : null) +
+      '<div class="card' + (media ? " card--media" : "") + '">' +
+        '<div class="card__body">' +
+          '<div class="card__kicker">' + icon(stop.k, 14) + esc(stop.kicker) + tagHTML + "</div>" +
+          "<h3>" + esc(stop.title) + "</h3>" +
+          "<p>" + stop.desc + "</p>" +
+          tips +
+          '<div class="actions">' +
+            (stop.leg && stop.leg.from && stop.dest !== stop.leg.from
+              ? '<a class="btn btn--solid" href="' + MAPS.dir(stop.leg.from, stop.dest, stop.leg.mode === "walk" ? "walking" : "driving") + '" target="_blank" rel="noopener">' + icon("route", 14) + " Cómo llegar</a>" : "") +
+            '<a class="btn" href="' + MAPS.search(stop.place || stop.dest) + '" target="_blank" rel="noopener">' + icon("pin", 14) + " Ver el lugar</a>" +
+            extra +
+          "</div>" +
+        "</div>" + media +
+      "</div>" +
+    "</div></article>";
+}
+
+function dayHTML(day) {
+  const stats = '<div class="day-stats">' +
+    '<span class="chip">' + icon("car", 13) + day.stats.drive + " en coche</span>" +
+    '<span class="chip">' + icon("walk", 13) + day.stats.walk + " a pie</span>" +
+    '<span class="chip">' + icon("pin", 13) + day.stats.stops + "</span>" +
+    '<span class="chip">' + icon("mountain", 13) + day.stats.alt + "</span>" +
+    "</div>";
+  const gallery = day.gallery && day.gallery.length
+    ? '<div class="gallery">' + day.gallery.map(g =>
+        '<figure class="' + (g.wide ? "wide" : "") + '" data-full="' + g.src + '" data-cap="' + esc(g.cap) + '">' +
+        '<img src="' + g.src + '" alt="' + esc(g.cap) + '" loading="lazy">' +
+        "<figcaption>" + esc(g.cap) + "</figcaption></figure>").join("") + "</div>"
+    : "";
+  return '<section id="' + day.id + '"><div class="wrap">' +
+    '<div class="day-head"><div class="day-num">' + day.num + '</div><div class="day-title">' +
+      '<div class="date">' + day.dow + " · " + day.date + "</div>" +
+      "<h2>" + esc(day.title) + "</h2><p>" + esc(day.subtitle) + "</p></div></div>" +
+    stats +
+    '<div class="day-actions">' +
+      '<a class="btn btn--accent" href="' + MAPS.multi(DAY_ROUTES[day.id]) + '" target="_blank" rel="noopener">' + icon("route", 16) + " Ruta completa del día en Google Maps</a>" +
+      (day.gallery && day.gallery.length ? '<a class="btn btn--outline" href="#gal-' + day.id + '">' + icon("camera", 16) + " Fotos del día</a>" : "") +
+    "</div>" +
+    '<div class="timeline">' + day.stops.map(stopHTML).join("") + "</div>" +
+    (gallery ? '<div id="gal-' + day.id + '">' + gallery + "</div>" : "") +
+    (day.note ? '<div class="note"><b>Nota del día.</b> ' + day.note + "</div>" : "") +
+    pagerHTML(day) +
+    "</div></section>";
+}
+
+function pagerHTML(day) {
+  const i = TRIP.days.findIndex(d => d.id === day.id);
+  const prev = TRIP.days[i - 1], next = TRIP.days[i + 1];
+  const left = prev
+    ? '<a href="#' + prev.id + '">← ' + prev.dow + " · " + esc(prev.title) + "</a>"
+    : '<a href="#resumen">← Resumen del viaje</a>';
+  const right = next
+    ? '<a href="#' + next.id + '">' + next.dow + " · " + esc(next.title) + " →</a>"
+    : '<a href="#comer">Comer y consejos →</a>';
+  return '<div class="pager">' + left + right + "</div>";
+}
+
+function overviewHTML() {
+  const cards = TRIP.days.map(d =>
+    '<a class="daycard reveal" href="#' + d.id + '">' +
+      '<div class="daycard__media"><img src="' + d.hero + '" alt="' + esc(d.title) + '" loading="lazy"><span class="daycard__date">' + d.dow + " " + d.date.split(" de ")[0] + "</span></div>" +
+      '<div class="daycard__body"><h3>' + esc(d.title) + "</h3><p>" + esc(d.subtitle) + "</p>" +
+        '<div class="daycard__meta"><span class="chip">' + icon("car", 12) + d.stats.drive + '</span><span class="chip">' + icon("walk", 12) + d.stats.walk + "</span></div>" +
+      "</div></a>").join("");
+
+  const legs = KEY_LEGS.map(l => "<div><span>" + l[0] + "</span><b>" + l[1] + "</b></div>").join("");
+
+  const stay = '<div class="staycards">' +
+    '<article class="staycard"><div class="k">' + icon("bed", 14) + "Alojamiento</div>" +
+      "<h3>Carrèr Castèth</h3>" +
+      "<p>Mijaran (Vielha e Mijaran), a cinco minutos andando del centro. Base de las tres noches y origen de las rutas de viernes, sábado y domingo.</p>" +
+      '<div class="actions"><a class="btn" href="' + MAPS.search("42.702385,0.7921793") + '" target="_blank" rel="noopener">' + icon("pin", 13) + " Ver en Maps</a></div></article>" +
+    '<article class="staycard"><div class="k">' + icon("pin", 14) + "Recogida de llaves</div>" +
+      "<h3>Baqueira · Carrèr Perimetrau</h3>" +
+      "<p>El enlace cae en Baqueira (Naut Aran), a 13,3 km y 15 minutos de Vielha por la C-28: cuenta media hora entre ida y vuelta el jueves.</p>" +
+      '<div class="actions"><a class="btn btn--solid" href="https://goo.gl/maps/PUgQxNoYP5TtsNZ36" target="_blank" rel="noopener">' + icon("ext", 13) + " Abrir el punto exacto</a></div></article>" +
+    "</div>";
+
+  const weather = WEATHER.map(w =>
+    '<div class="wx"><div class="wx__d">' + w.d + '</div><div class="wx__i">' + w.icon + '</div>' +
+    '<div class="wx__t"><b>' + Math.round(w.max) + '°</b><span>' + Math.round(w.min) + '°</span></div>' +
+    '<div class="wx__c">' + w.code + " · " + w.rain + "% lluvia</div></div>").join("");
+
+  return '<section id="resumen"><div class="wrap">' +
+    '<div class="sec-head"><div class="kicker">El viaje de un vistazo</div>' +
+    "<h2>Cuatro días, dos valles y seis pueblos</h2>" +
+    "<p>Un itinerario pensado para noviembre: rutas cortas por la mañana, pueblos y sobremesas por la tarde, y el coche solo para los traslados. Todo lo que ves se puede abrir en Google Maps.</p></div>" +
+    '<div class="overview">' + cards + "</div>" +
+    stay +
+    '<div class="walkcard"><div class="walkcard__head"><h3>A pie, día a día</h3><span>Suma de todos los tramos, opcionales incluidos</span></div>' +
+      '<div class="walkrow">' +
+        "<div><b>Jue 5</b><span>1,5 – 4 km</span></div>" +
+        "<div><b>Vie 6</b><span>≈ 7 km</span></div>" +
+        "<div><b>Sáb 7</b><span>11 – 13,5 km</span></div>" +
+        "<div><b>Dom 8</b><span>0 – 4,5 km</span></div>" +
+      "</div>" +
+      "<p>El plan base son unos 20 km en cuatro días: ningún día pasa de 11 km y solo el sábado se acerca a una caminata de montaña. El máximo de 29 km añade los tres tramos opcionales: la vuelta al lago de la Bassa d'Oles, la subida a Gausac y el paseo de Bossòst a Les.</p>" +
+    "</div>" +
+    '<div class="mapcard">' +
+      '<div class="mapcard__frame"><iframe title="Mapa de la Val d\'Aran" src="https://maps.google.com/maps?q=Val%20d%27Aran&z=10&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>' +
+      '<div class="mapcard__body">' +
+        "<h3>Distancias clave</h3>" +
+        "<p>Kilómetros y tiempos de conducción medidos sobre la red de carreteras. Google Maps puede variar unos minutos según el tráfico.</p>" +
+        '<div class="keylegs">' + legs + "</div>" +
+        '<div class="actions" style="margin-top:14px">' +
+          '<a class="btn" href="' + MAPS.dir("Mira, Cuenca", "Vielha, Lleida") + '" target="_blank" rel="noopener">' + icon("route", 14) + " Ida: Mira → Vielha</a>" +
+          '<a class="btn" href="' + MAPS.dir("Vielha, Lleida", "Mira, Cuenca") + '" target="_blank" rel="noopener">' + icon("route", 14) + " Vuelta: Vielha → Mira</a>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+    '<div class="wxwrap"><div class="wxwrap__head"><h3>Previsión para los días del viaje</h3><span>Vielha · 975 m · consultado el 31/10/2026</span></div>' +
+      '<div class="wxrow">' + weather + "</div>" +
+      '<p class="wxnote">Datos de Open-Meteo. A cinco días vista cambian: <a href="https://www.meteoblue.com/es/tiempo/semana/vielha_espa%C3%B1a_3105976" target="_blank" rel="noopener">consulta la previsión actualizada</a> antes de salir.</p>' +
+    "</div>" +
+    "</div></section>";
+}
+
+function foodHTML() {
+  const cards = FOOD.map(f =>
+    '<article class="food reveal"><div class="where">' + esc(f.where) + " · " + esc(f.when) + "</div>" +
+    "<h3>" + esc(f.name) + "</h3><p>" + esc(f.desc) + "</p>" +
+    '<div class="actions"><a class="btn" href="' + MAPS.search(f.q) + '" target="_blank" rel="noopener">' + icon("pin", 13) + " Ver en Maps</a></div></article>").join("");
+  const dishes = DISHES.map(d => "<li>" + d + "</li>").join("");
+  return '<section id="comer"><div class="wrap">' +
+    '<div class="sec-head"><div class="kicker">Mesa y mantel</div><h2>Dónde comer y qué pedir</h2>' +
+    "<p>Once direcciones para cuatro días, con la recomendación del plan y una alternativa por si está lleno. Reserva las cenas del fin de semana.</p></div>" +
+    '<div class="food-grid">' + cards + "</div>" +
+    '<div class="dishes"><img class="dishes__img" src="img/olla-1.jpg" alt="Olla aranesa, guiso típico del valle" loading="lazy" data-full="img/olla-1.jpg" data-cap="Olla aranesa">' +
+      '<div class="dishes__body"><h3>Platos típicos que no puedes perderte</h3><ul>' + dishes + "</ul>" +
+      '<p style="margin-top:16px;font-size:.88rem;color:var(--muted)">La olla aranesa es el plato identitario del valle: legumbres, patata, col y carne curada, cocinada a fuego lento. En otoño, el civet de jabalí o venado es la otra gran opción.</p></div>' +
+    "</div></div></section>";
+}
+
+function tipsHTML() {
+  const cards = TIPS.map(t => '<article class="tipbox reveal"><div class="tipbox__icon">' + icon(t.icon, 20) + "</div><h3>" + esc(t.title) + "</h3><p>" + t.text + "</p></article>").join("");
+  return '<section id="consejos"><div class="wrap">' +
+    '<div class="sec-head"><div class="kicker">Antes de salir</div><h2>Consejos prácticos</h2>' +
+    "<p>Lo que marca la diferencia en la Val d'Aran en noviembre: luz, pistas de montaña y reservas.</p></div>" +
+    '<div class="tips-grid">' + cards + "</div>" +
+    '<div class="calc"><div class="calc__form"><h3>Calculadora de combustible</h3>' +
+      '<div class="field"><label for="km">Kilómetros totales del viaje</label><input id="km" type="number" value="1230" min="0" step="10"></div>' +
+      '<div class="field"><label for="cons">Consumo medio (L/100 km)</label><input id="cons" type="number" value="7.2" min="0" step="0.1"></div>' +
+      '<div class="field"><label for="price">Precio del carburante (€/L)</label><input id="price" type="number" value="1.55" min="0" step="0.01"></div>' +
+      "</div>" +
+      '<div class="calc__out"><div class="lbl">Coste estimado de combustible</div><div class="big" id="fuelOut">—</div>' +
+      '<div class="hint" id="fuelHint">Incluye ida, vueltas y traslados por el valle.</div></div>' +
+    "</div>" +
+    '<div class="note note--warn" style="margin-top:22px"><b>Verifica antes de salir:</b> horarios de restaurantes, estado de las pistas de Artiga de Lin y Saut deth Pish, y previsión meteorológica. Los datos de este documento son orientativos y no sustituyen la información oficial de Turisme Val d\'Aran.</div>' +
+    "</div></section>";
+}
+
+function checkHTML() {
+  const cols = CHECK.map((c, ci) =>
+    '<div class="checkcol"><h3>' + icon(c.icon, 18) + esc(c.title) + "</h3>" +
+      c.items.map((it, i) => '<label><input type="checkbox" data-ck="' + ci + "-" + i + '"><span>' + esc(it) + "</span></label>").join("") +
+    "</div>").join("");
+  return '<section id="checklist"><div class="wrap">' +
+    '<div class="sec-head"><div class="kicker">Para no olvidar nada</div><h2>Checklist de la maleta</h2>' +
+    "<p>Marca lo que ya tienes preparado. Se guarda en tu navegador, así que puedes cerrar y volver más tarde.</p></div>" +
+    '<div class="checklist">' + cols + "</div>" +
+    '<div class="progress"><span id="ckLabel">0 de 0</span><div class="progress__bar"><div class="progress__fill" id="ckFill"></div></div><button class="btn btn--outline btn--sm" id="ckReset">Vaciar</button></div>' +
+    "</div></section>";
+}
+
+function footerHTML() {
+  const credits = CREDITS.map(c =>
+    "<span>" + esc(c[1]) + " · " + esc(c[2]) + " · " + esc(c[3]) + "</span>").join("");
+  return "<footer><div class=\"wrap\">" +
+    "<h3>Sobre este itinerario</h3>" +
+    "<p class=\"foot-note\">Plan original de 4 días por la Val d'Aran (5–8 de noviembre), ampliado con distancias de conducción medidas sobre OpenStreetMap, altitudes, horarios de luz solar, previsión meteorológica y enlaces directos a Google Maps. Las fotografías proceden de Wikimedia Commons y se usan bajo sus licencias libres.</p>" +
+    '<div class="credits" style="margin-top:18px">' + credits + "</div>" +
+    '<p class="foot-note" style="font-size:.78rem">Distancias de conducción: OSRM / OpenStreetMap (octubre 2026). Los mapas de la sección «Mapa de cada día» se dibujan con esa misma geometría real de carretera y no necesitan conexión. Altitudes: Open-Meteo. Amanecer y atardecer: 07:35–07:39 y 17:41–17:44 en Vielha. Previsión: Open-Meteo, 31/10/2026. Fotografías: Wikimedia Commons, licencias CC BY / CC BY-SA / CC0 indicadas arriba.</p>' +
+    "</div></footer>";
+}
+
+/* ---------- MOUNT ---------- */
+$("#app").innerHTML =
+  overviewHTML() +
+  routesHTML() +
+  TRIP.days.map(dayHTML).join("") +
+  foodHTML() +
+  tipsHTML() +
+  checkHTML() +
+  footerHTML();
+
+/* ---------- ROUTE MAPS ---------- */
+(function () {
+  const tabs = document.querySelectorAll("[data-route]");
+  tabs.forEach(b => b.addEventListener("click", () => paintRoute(b.dataset.route)));
+  paintRoute("dia-1");
+})();
+
+/* ---------- LIGHTBOX ---------- */
+(function () {
+  const lb = $("#lightbox"), img = $("#lbImg"), cap = $("#lbCap");
+  const items = Array.from(document.querySelectorAll("[data-full]"));
+  let i = 0;
+  function show(n) {
+    i = (n + items.length) % items.length;
+    const el = items[i];
+    img.src = el.dataset.full;
+    img.alt = el.dataset.cap || "";
+    cap.textContent = el.dataset.cap || "";
+    lb.setAttribute("open", "");
+    document.body.style.overflow = "hidden";
+  }
+  function close() { lb.removeAttribute("open"); document.body.style.overflow = ""; }
+  items.forEach((el, n) => el.addEventListener("click", () => show(n)));
+  $("#lbClose").addEventListener("click", close);
+  $("#lbPrev").addEventListener("click", (e) => { e.stopPropagation(); show(i - 1); });
+  $("#lbNext").addEventListener("click", (e) => { e.stopPropagation(); show(i + 1); });
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.hasAttribute("open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowRight") show(i + 1);
+    if (e.key === "ArrowLeft") show(i - 1);
+  });
+})();
+
+/* ---------- THEME ---------- */
+(function () {
+  const root = document.documentElement, btn = $("#themeBtn");
+  const saved = localStorage.getItem("valaran-theme");
+  if (saved) root.dataset.theme = saved;
+  else if (window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches) root.dataset.theme = "dark";
+  const sync = () => {
+    btn.innerHTML = '<svg width="18" height="18"><use href="#i-' + (root.dataset.theme === "dark" ? "sun" : "moon") + '"/></svg>';
+  };
+  sync();
+  btn.addEventListener("click", () => {
+    root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+    localStorage.setItem("valaran-theme", root.dataset.theme);
+    sync();
+  });
+  $("#printBtn").addEventListener("click", () => window.print());
+})();
+
+/* ---------- CHECKLIST ---------- */
+(function () {
+  const boxes = Array.from(document.querySelectorAll("[data-ck]"));
+  const KEY = "valaran-check-v1";
+  let state = {};
+  try { state = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { state = {}; }
+  function paint() {
+    const done = boxes.filter(b => b.checked).length;
+    $("#ckLabel").textContent = done + " de " + boxes.length;
+    $("#ckFill").style.width = (boxes.length ? (done / boxes.length) * 100 : 0) + "%";
+  }
+  boxes.forEach(b => {
+    b.checked = !!state[b.dataset.ck];
+    b.addEventListener("change", () => {
+      state[b.dataset.ck] = b.checked;
+      localStorage.setItem(KEY, JSON.stringify(state));
+      paint();
+    });
+  });
+  $("#ckReset").addEventListener("click", () => {
+    state = {}; localStorage.removeItem(KEY);
+    boxes.forEach(b => (b.checked = false));
+    paint();
+  });
+  paint();
+})();
+
+/* ---------- FUEL ---------- */
+(function () {
+  const km = $("#km"), cons = $("#cons"), price = $("#price"), out = $("#fuelOut"), hint = $("#fuelHint");
+  function calc() {
+    const k = parseFloat(km.value) || 0, c = parseFloat(cons.value) || 0, p = parseFloat(price.value) || 0;
+    const litres = (k * c) / 100;
+    out.textContent = (litres * p).toFixed(0) + " €";
+    hint.textContent = litres.toFixed(0) + " L para " + k + " km · ida, vueltas y traslados";
+  }
+  [km, cons, price].forEach(el => el.addEventListener("input", calc));
+  calc();
+})();
+
+/* ---------- NAV + REVEAL ---------- */
+(function () {
+  const links = Array.from(document.querySelectorAll("#navLinks a"));
+  const sections = links.map(a => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+  const setActive = (id) => links.forEach(a => a.classList.toggle("is-active", a.getAttribute("href") === "#" + id));
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) setActive(en.target.id); });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach(s => obs.observe(s));
+    const rev = new IntersectionObserver((entries) => {
+      entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add("is-in"); rev.unobserve(en.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal").forEach(el => rev.observe(el));
+  } else {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("is-in"));
+  }
+})();
+</script>
+</body>
+</html>
