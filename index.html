@@ -227,6 +227,8 @@
   .note{margin-top:18px; padding:16px 18px; border-radius:var(--radius-sm); background:var(--moss-soft); border:1px solid color-mix(in srgb, var(--moss) 22%, transparent); font-size:.9rem; color:var(--ink-soft)}
   .note b{color:var(--ink)}
   .note--warn{background:var(--accent-soft); border-color:color-mix(in srgb, var(--accent) 22%, transparent)}
+  .note--plan{background:var(--surface-2); border-color:var(--line)}
+  .note--plan b{color:var(--ink)}
 
   .pager{display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; margin-top:30px; padding-top:20px; border-top:1px solid var(--line); font-size:.9rem; font-weight:600}
   .pager a{color:var(--ink-soft); display:inline-flex; align-items:center; gap:6px}
@@ -671,7 +673,7 @@ const TRIP = {
           t: "21:30", k: "food", kicker: "Cena", title: "Era Lucana", badge: "Reservado · 21:30",
           dest: "Era Lucana, Vielha", place: "Era Lucana Vielha",
           desc: "La cena especial del viaje, con mesa reservada a las 21:30: Era Lucana es una de las referencias gastronómicas del valle, con cocina de autor y producto local. Después de la cascada y del paseo por Vielha, es el sitio para sentarse sin prisa.",
-          tips: ["Mesa reservada a las <b>21:30</b>: hay tiempo de sobra para ducharse y bajar andando.", "Si os apetece algo más informal otro día, Eth Bistro funciona muy bien.", "Deja hueco para el postre: es la última cena con mantel del viaje."],
+          tips: ["Mesa reservada a las <b>21:30</b>: hay tiempo de sobra para ducharse y bajar andando.", "Si otro día os apetece algo más informal, Tauèrna Urtau o Era Coquèla.", "Deja hueco para el postre: es la última cena con mantel del viaje."],
           leg: { mode: "walk", km: "600 m", min: "8 min", from: "Vielha, Lleida" }
         }
       ],
@@ -778,8 +780,9 @@ const TRIP = {
         {
           t: "19:30", k: "food", kicker: "Cena", title: "Tapas en Urtau Arties",
           dest: "Urtau Arties", place: "Tauèrna Urtau Arties",
-          desc: "Cena de tapas en la versión aranesa de Urtau: informal, animada y perfecta para cerrar el día sin complicaciones.",
-          tips: ["Suele haber ambiente a partir de las 20:00."],
+          desc: "Cena de tapas en la versión aranesa de Urtau: informal, animada y perfecta para cerrar el día sin complicaciones, con el coche ya aparcado y sin volver a conducir.",
+          tips: ["Suele haber ambiente a partir de las 20:00.", "Si preferís cenar de mantel, el plan B está a ocho minutos: Eth Bistro Gastro Espai, en Vielha."],
+          aside: "<b>Plan B para cenar en Vielha:</b> <b>Eth Bistro Gastro Espai</b>, alta cocina, a 6,7 km y 8 minutos de Arties. <b>Menú corto</b>, 62 €/pers.: 3 aperitivos gourmet, entrante, pescado o carne y postre. <b>Menú largo</b>: 5 aperitivos gourmet, entrante, pescado, carne, postre y petit fours (precio a confirmar). Conviene reservar: son menús y pocas mesas.",
           leg: { mode: "walk", km: "200 m", min: "3 min", from: "Arties, Naut Aran" }
         }
       ],
@@ -790,7 +793,7 @@ const TRIP = {
         { src: "img/salardu-iglesia.jpg", cap: "Sant Andreu de Salardú" },
         { src: "img/garos-1.jpg", cap: "Sant Julià de Garòs" }
       ],
-      note: "Es el día con más kilómetros a pie (más de 12 km con la vuelta a Gausac). Si preferís algo más tranquilo, saltad Gausac y salid directos a Arties, o haced Arties-Garòs en coche y reservad las piernas para la ruta circular de Bagergue. El circ de Colomèrs queda fuera del viaje: son 4-6 h de ida y vuelta, unos 650 m de desnivel hasta el refugio (2.130 m) y un circo orientado al norte que en noviembre guarda nieve y sombra; el refugio está cerrado fuera de temporada. Es un objetivo de verano, no de una tarde de noviembre."
+      note: "Es el día con más kilómetros a pie (más de 12 km con la vuelta a Gausac). Si preferís algo más tranquilo, saltad Gausac y salid directos a Arties, o haced Arties-Garòs en coche y reservad las piernas para la ruta circular de Bagergue. Para cenar, el plan base son las tapas de Urtau en Arties; si preferís volver a Vielha, Eth Bistro Gastro Espai es el plan B (menú corto de 62 € o menú largo), a 8 minutos. El circ de Colomèrs queda fuera del viaje: son 4-6 h de ida y vuelta, unos 650 m de desnivel hasta el refugio (2.130 m) y un circo orientado al norte que en noviembre guarda nieve y sombra; el refugio está cerrado fuera de temporada. Es un objetivo de verano, no de una tarde de noviembre."
     },
     {
       id: "dia-4", num: "04", dow: "Domingo", date: "8 de noviembre",
@@ -861,7 +864,7 @@ const FOOD = [
   { name: "Brasería El Racó", where: "Vielha", when: "Día 1 · cena · 22:15", desc: "Brasa y platos contundentes de montaña. Mesa reservada a las 22:15 para cerrar el día de carretera.", q: "Brasería El Racó Vielha" },
   { name: "Tauèrna Era Oelha Nera", where: "Es Bòrdes", when: "Día 2 · comida", desc: "Cocina aranesa de pueblo, de cuchara y brasa, en una casa de piedra del mismo Es Bòrdes. La parada del viernes tras la Artiga de Lin.", q: "Era Oelha Nera Es Bòrdes" },
   { name: "Era Lucana", where: "Vielha", when: "Día 2 · cena · 21:30", desc: "Cocina de autor y producto local, una de las referencias del valle. Mesa reservada a las 21:30 para la cena del viernes.", q: "Era Lucana Vielha" },
-  { name: "Eth Bistro", where: "Vielha", when: "Día 2 · alternativa", desc: "Opción más informal para la noche del viernes si Era Lucana está completo.", q: "Eth Bistro Vielha" },
+  { name: "Eth Bistro Gastro Espai", where: "Vielha", when: "Día 3 · plan B", desc: "Alta cocina en Vielha: menú corto de 3 aperitivos, entrante, pescado o carne y postre (62 €), y menú largo con 5 aperitivos, pescado, carne, postre y petit fours.", q: "Eth Bistro Gastro Espai Vielha" },
   { name: "Casa Perú", where: "Bagergue", when: "Día 3 · comida", desc: "Comida típica de montaña en el pueblo más alto del valle. Olla aranesa y carnes guisadas.", q: "Casa Perú Bagergue" },
   { name: "Unhòla", where: "Bagergue", when: "Día 3 · alternativa", desc: "Alternativa en el mismo pueblo si Casa Perú no tiene mesa.", q: "Unhòla Bagergue" },
   { name: "Urtau Arties", where: "Arties", when: "Día 3 · cena", desc: "Tapas y ambiente animado para cerrar el sábado.", q: "Tauèrna Urtau Arties" },
@@ -883,7 +886,7 @@ const TIPS = [
   { icon: "car", title: "Coche y cadenas", text: "La N-230 y las pistas altas pueden exigir cadenas. Llévalas siempre, junto con rasqueta, anticongelante y linterna. Reposta al entrar y al salir del valle." },
   { icon: "route", title: "Pistas y accesos", text: "Artiga de Lin y Saut deth Pish se suben por pista forestal. En temporada alta hay control horario; en noviembre suele estar abierta, pero confirma el estado antes de subir." },
   { icon: "camera", title: "Luz y fotografía", text: "La hora dorada va de las 16:30 a las 17:40. Los mejores escenarios: el puente del Garona al atardecer, la Bassa d'Oles a media tarde, la Artiga de Lin a media mañana y Bagergue por la tarde. El barranco del Varradòs pierde el sol pronto: allí funciona mejor la exposición larga." },
-  { icon: "food", title: "Reservas", text: "Cenas del jueves y del viernes resueltas: El Racó a las 22:15 y Era Lucana a las 21:30. Falta asegurar la comida del sábado en Bagergue: es fin de semana y los pueblos son pequeños. Muchos restaurantes cierran un día entre semana." },
+  { icon: "food", title: "Reservas", text: "Cenas del jueves y del viernes resueltas: El Racó a las 22:15 y Era Lucana a las 21:30. Falta asegurar la comida del sábado en Bagergue, y si tiráis del plan B del sábado (Eth Bistro), reservad también: son menús y pocas mesas." },
   { icon: "info", title: "Dinero y cobertura", text: "Lleva efectivo para los pueblos pequeños y para los aparcamientos. La cobertura móvil es irregular en las pistas: descarga el mapa offline antes de salir." }
 ];
 
@@ -1154,6 +1157,7 @@ function stopHTML(stop, idx) {
     : "";
   const tips = stop.tips && stop.tips.length
     ? '<ul class="tips">' + stop.tips.map(t => "<li>" + t + "</li>").join("") + "</ul>" : "";
+  const aside = stop.aside ? '<div class="note note--plan">' + stop.aside + "</div>" : "";
   const tags = [];
   if (stop.alt) tags.push('<span class="alt">' + stop.alt + "</span>");
   if (stop.opt) tags.push('<span class="badge badge--opt">Opcional</span>');
@@ -1172,6 +1176,7 @@ function stopHTML(stop, idx) {
           "<h3>" + esc(stop.title) + "</h3>" +
           "<p>" + stop.desc + "</p>" +
           tips +
+          aside +
           '<div class="actions">' +
             (stop.leg && stop.leg.from && stop.dest !== stop.leg.from
               ? '<a class="btn btn--solid" href="' + MAPS.dir(stop.leg.from, stop.dest, stop.leg.mode === "walk" ? "walking" : "driving") + '" target="_blank" rel="noopener">' + icon("route", 14) + " Cómo llegar</a>" : "") +
